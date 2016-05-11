@@ -1,0 +1,196 @@
+//
+//  LockView.m
+//  手势解锁
+//
+//  Created by 陈波文 on 16/3/7.
+//  Copyright © 2016年 陈波文. All rights reserved.
+//
+
+#import "LockView.h"
+
+#define ViewWH self.bounds.size.width
+#define margin 10
+
+@interface LockView ()
+
+
+
+/**
+ *  selectedButtonArray
+ */
+@property(nonatomic,strong)NSMutableArray * selectedButtonArray;
+
+@end
+
+@implementation LockView
+
+#pragma mark - lazy
+
+-(NSMutableArray *)selectedButtonArray{
+    if (_selectedButtonArray == nil) {
+        _selectedButtonArray = [NSMutableArray array];
+    }
+    return _selectedButtonArray;
+}
+
+
+#pragma mark - init
+
+-(instancetype)init{
+    if (self = [super init]) {
+        
+        [self setUpButton];
+    }
+    return self;
+}
+
+
+
+
+#pragma mark - initUI
+
+-(void)setUpButton{
+    
+    NSInteger count = 9;
+    
+    for (int i = 0; i < count ; i++) {
+        
+        UIButton *button = [[UIButton alloc]init];
+        [self addSubview:button];
+        
+        button.userInteractionEnabled = NO;
+        
+        [button setImage:[UIImage imageNamed:@"gesture_node_normal"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"gesture_node_selected"] forState:UIControlStateSelected];
+        
+        button.tag = i;
+    }
+
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self setUpButtonFrame];
+}
+
+-(void)setUpButtonFrame{
+    
+    NSInteger numOfRow = 3;//行
+    NSInteger numofColumn = 3; //列
+    NSInteger count = self.subviews.count;//总数量
+    
+    CGFloat buttonWH = (ViewWH - (numOfRow - 1) *margin)/numOfRow;
+    
+    
+    for (int i = 0; i < count ; i++) {
+        
+        NSInteger indexOfRow = i % numofColumn;//每行的索引
+        NSInteger indexOfColumn = i / numOfRow;//第几列
+        
+        UIButton *button = self.subviews[i];
+        
+        button.frame = CGRectMake(indexOfRow * (buttonWH + margin), indexOfColumn * (buttonWH + margin), buttonWH, buttonWH);
+        
+    }
+    
+}
+
+#pragma mark - touch --begin && move && end
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    //1.进行判断
+    UITouch *touch = [touches anyObject];
+    //2.转换点的位置
+    CGPoint point = [touch locationInView:self];
+    //3.判断button是否存在
+    UIButton *button = [self buttonContainPoint:point];
+    //如果button存在就放在数组中保存
+    if (button != nil) {
+        button.selected = YES;
+        [self.selectedButtonArray addObject:button];
+    }
+    
+    
+}
+
+
+-(UIButton *)buttonContainPoint:(CGPoint)point{
+    
+    for (UIButton *button in self.subviews) {
+        if (CGRectContainsPoint(button.frame, point)) {
+            return button;
+        }
+    }
+    return nil;
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    //1.进行判断
+    UITouch *touch = [touches anyObject];
+    //2.转换点的位置
+    CGPoint point = [touch locationInView:self];
+    //3.判断button是否存在
+    UIButton *button = [self buttonContainPoint:point];
+    
+    if (button != nil && button.selected == NO) {
+        
+        button.selected = YES;
+        [self.selectedButtonArray addObject:button];
+    }
+    
+    //调用重绘命令
+    [self setNeedsDisplay];
+}
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    //打印选中的button
+    
+    NSMutableString *str = [NSMutableString string];
+    
+    for (UIButton *button in self.selectedButtonArray) {
+        [str appendFormat:@"%ld,",button.tag];
+        button.selected = NO;
+    }
+    NSLog(@"选中的button编号为:%@",str);
+   
+    //清空所有的选中按钮--重绘
+    [self.selectedButtonArray removeAllObjects];
+    
+    [self setNeedsDisplay];
+    
+}
+
+#pragma mark - drawRect
+
+-(void)drawRect:(CGRect)rect{
+//    创建路径.
+    UIBezierPath *path = [UIBezierPath bezierPath];
+//    取出所有保存的选中按钮连线.
+    for(int i = 0; i < self.selectedButtonArray.count;i++){
+        UIButton *btn = self.selectedButtonArray[i];
+//        判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
+        if(i == 0){
+//            设置起点.
+            [path moveToPoint:btn.center];
+        }else{
+//            添加一根线到当前按钮的圆心.
+            [path addLineToPoint:btn.center];
+        }
+    }
+    
+//    设置颜色
+    [[UIColor redColor] set];
+//    设置线宽
+    [path setLineWidth:5];
+//    设置线的连接样式
+    [path setLineJoinStyle:kCGLineJoinRound];
+    //设置连线的透明度
+    [path strokeWithBlendMode:kCGBlendModeColor alpha:0.3];
+//    绘制路径.
+    [path stroke];
+}
+
+
+@end
