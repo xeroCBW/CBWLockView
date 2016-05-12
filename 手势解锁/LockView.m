@@ -11,7 +11,7 @@
 
 
 #define ViewWH self.bounds.size.width
-#define margin 10
+#define margin 30
 
 @interface LockView ()
 

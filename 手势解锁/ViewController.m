@@ -44,7 +44,7 @@
 -(void)viewDidLayoutSubviews{
     [super viewWillLayoutSubviews];
     
-    self.lockView.frame = CGRectMake(0, 0, ScreenHW, ScreenHW);
+    self.lockView.frame = CGRectMake(0, 0, 300, 300);
     self.lockView.center = self.view.center;
     
 }

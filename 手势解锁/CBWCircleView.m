@@ -14,6 +14,9 @@ static float const radius = 60;
 @interface CBWCircleView ()
 /** 外圈圆颜色*/
 @property (nonatomic , strong) UIColor *outerCircleColor;
+
+/** 内圈圆颜色*/
+@property (nonatomic ,strong) UIColor *innerCirCleColor;
 @end
 
 @implementation CBWCircleView
@@ -22,7 +25,7 @@ static float const radius = 60;
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor purpleColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.state = CircleViewStateNormal;
     }
     return self;
@@ -36,7 +39,8 @@ static float const radius = 60;
     //画外圆
     [self drawCircleWithRadius:0 lineWidth:0 rect:rect color:self.outerCircleColor];
     //画内圆
-    
+    [self drawCircleWithRadius:30 lineWidth:10 rect:rect color:self.innerCirCleColor];
+
     //画内圆的 border
 
 }
@@ -80,14 +84,16 @@ static float const radius = 60;
     if (self.state == CircleViewStateNormal) {
         
         _outerCircleColor = [UIColor greenColor];
-        
+        _innerCirCleColor = [UIColor whiteColor];
     }else if (self.state == CircleViewStateSeleted){
         
         _outerCircleColor = [UIColor yellowColor];
+        _innerCirCleColor = [UIColor blueColor];
         
     }else if (self.state == CircleViewStateError){
         
          _outerCircleColor = [UIColor redColor];
+        _outerCircleColor = [UIColor redColor];
     }
     
     
