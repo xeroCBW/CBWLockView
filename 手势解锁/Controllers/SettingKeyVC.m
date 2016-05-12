@@ -9,8 +9,7 @@
 #import "SettingKeyVC.h"
 #import "LockView.h"
 #import "CBWCircleView.h"
-#import "CALayer+Anim.h"
-#import "LockConst.h"
+
 @interface SettingKeyVC ()
 
 /** 手势密码字符串*/

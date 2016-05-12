@@ -21,6 +21,7 @@
 		D0B6BEBA1CE450D40096B778 /* SettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEB91CE450D40096B778 /* SettingKeyVC.m */; };
 		D0B6BEBD1CE450E80096B778 /* VerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */; };
 		D0B6BEC11CE477A20096B778 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */; };
+		D0B6BECE1CE486730096B778 /* NSObject+IsBlankString.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,9 @@
 		D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyKeyVC.m; sourceTree = "<group>"; };
 		D0B6BEBF1CE477A20096B778 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
 		D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		D0B6BEC21CE483340096B778 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		D0B6BECC1CE486730096B778 /* NSObject+IsBlankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsBlankString.h"; sourceTree = "<group>"; };
+		D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsBlankString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				D07E73691C8D4E4100ED5EAB /* main.m */,
+				D0B6BEC21CE483340096B778 /* Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +187,8 @@
 			children = (
 				D0B6BEBF1CE477A20096B778 /* CALayer+Anim.h */,
 				D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */,
+				D0B6BECC1CE486730096B778 /* NSObject+IsBlankString.h */,
+				D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -326,6 +333,7 @@
 				D0B6BEBA1CE450D40096B778 /* SettingKeyVC.m in Sources */,
 				D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */,
 				D0B6BEC11CE477A20096B778 /* CALayer+Anim.m in Sources */,
+				D0B6BECE1CE486730096B778 /* NSObject+IsBlankString.m in Sources */,
 				D07E736A1C8D4E4100ED5EAB /* main.m in Sources */,
 				D0B6BEBD1CE450E80096B778 /* VerifyKeyVC.m in Sources */,
 			);
@@ -470,6 +478,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/手势解锁/Header.h";
 				INFOPLIST_FILE = "手势解锁/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.cbwwb;
@@ -484,6 +494,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/手势解锁/Header.h";
 				INFOPLIST_FILE = "手势解锁/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.cbwwb;

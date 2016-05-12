@@ -8,8 +8,6 @@
 
 #import "VerifyKeyVC.h"
 #import "LockView.h"
-#import "LockConst.h"
-#import "CALayer+Anim.h"
 #import "CBWCircleView.h"
 
 @interface VerifyKeyVC()
@@ -22,8 +20,8 @@
     [super viewDidLoad];
     self.title = @"验证密码";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
+    //判断是否
+    [self checkHasSetKey];
     
     LockView *lockView = [[LockView alloc]init];
     lockView.frame = CGRectMake(0, 0, 300, 300);
@@ -45,13 +43,11 @@
     lockView.lockViewHandle = ^(NSString *str,LockView *lockView){
         
         NSString *gestureKeyStr = [LockConst getGestureWithKey:gestureKey];
-        if (gestureKeyStr == nil) {
-            //值为空,还没有设置
-        }else{
+     
             //不为空值
             if ([gestureKeyStr isEqualToString:str]) {
                 //相等直接返回
-                [self.navigationController popViewControllerAnimated:YES];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             }else{
                 
                 //不返回,需要提示
@@ -66,7 +62,7 @@
 
                 
             }
-        }
+     
     };
     
     
@@ -74,8 +70,31 @@
 
 }
 
+-(void)dealloc{
+    
+    NSLog(@"%s",__func__);
+    
+}
 
+#pragma mark - 判断是否设置过密码
+- (void)checkHasSetKey{
+    
+    NSString *gestureKeyStr = [LockConst getGestureWithKey:gestureKey];
+    
+    if ([self isBlankString:gestureKeyStr]) {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您还没有设置密码,请返回首页设置密码" message: nil preferredStyle:UIAlertControllerStyleAlert];
+                
+        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
+       
+        [alertVC addAction:yes];
+        
+        [self presentViewController:alertVC animated:YES completion:nil];
+        
+    }
 
-
+}
 
 @end

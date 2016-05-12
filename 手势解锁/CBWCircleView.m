@@ -8,8 +8,6 @@
 
 #import "CBWCircleView.h"
 
-static float const lineWidth =48.0;
-static float const radius = 60;
 
 @interface CBWCircleView ()
 /** 外圈圆颜色*/

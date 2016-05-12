@@ -20,6 +20,13 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad{
+    
+    [LockConst saveGesture:nil Key:gestureKey];
+    
+}
+
+
 - (IBAction)settingKeyAction:(id)sender {
     
     SettingKeyVC *settingVC = [[SettingKeyVC alloc]init];
