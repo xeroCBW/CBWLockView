@@ -9,10 +9,6 @@
 #import "LockView.h"
 #import "CBWCircleView.h"
 
-
-
-
-
 @interface LockView ()
 
 @end

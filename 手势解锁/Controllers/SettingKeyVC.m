@@ -65,6 +65,10 @@
         
         weakSelf.tipsLabel.text = lengthTips;
         [weakSelf.tipsLabel.layer shake];
+        for (CBWCircleView *circleView in lockView.selectedButtonArray) {
+            circleView.state = CircleViewStateError;
+        }
+        [lockView  setNeedsDisplay];
         return;
 
     }
