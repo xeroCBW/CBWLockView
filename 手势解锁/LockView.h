@@ -10,12 +10,16 @@
 
 @interface LockView : UIView
 /**
+ *  selectedButtonArray
+ */
+@property(nonatomic,strong)NSMutableArray * selectedButtonArray;
+/**
  *  buttonArray
  */
 @property(nonatomic,assign)NSInteger buttonArrayCount;
 
 /** 选中9宫格字符串*/
-@property (nonatomic ,strong) void (^block)(NSString *str) ;
+@property (nonatomic ,strong) void (^lockViewHandle)(NSString *str,LockView *lockView) ;
 
 
 @end

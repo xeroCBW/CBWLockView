@@ -31,6 +31,12 @@ static float const radius = 60;
     return self;
 }
 
+-(void)dealloc{
+    
+    NSLog(@"%s",__func__);
+}
+
+#pragma mark - private
 
 //重写 drawRect 方法
 

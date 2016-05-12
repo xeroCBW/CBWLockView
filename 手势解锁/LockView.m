@@ -15,13 +15,6 @@
 
 @interface LockView ()
 
-
-
-/**
- *  selectedButtonArray
- */
-@property(nonatomic,strong)NSMutableArray * selectedButtonArray;
-
 @end
 
 @implementation LockView
@@ -47,7 +40,10 @@
 }
 
 
-
+-(void)dealloc{
+    
+    NSLog(@"%s",__func__);
+}
 
 #pragma mark - initUI
 
@@ -152,22 +148,48 @@
         circleView.state = CircleViewStateNormal;
     }
 
-    //清空所有的选中按钮--重绘
-    [self.selectedButtonArray removeAllObjects];
-    
-    if (_block) {
-        _block(str);
+    if (_lockViewHandle) {
+        _lockViewHandle(str,self);
+        
+        
+    //是否错误,在这里暂停几秒
+        if ([self getCircleState] == CircleViewStateError) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                for (CBWCircleView *circleView in self.selectedButtonArray) {
+                    circleView.state = CircleViewStateNormal;
+                }
+
+                [self resetView];
+                
+            });
+        }else{
+            [self resetView];
+        }
+        
+        
     }
     
-    
-    
+}
+
+#pragma mark - private
+
+- (CircleViewState)getCircleState
+{
+    return [(CBWCircleView *)[self.selectedButtonArray firstObject] state];
+}
+
+- (void)resetView{
+    //清空所有的选中按钮--重绘
+    [self.selectedButtonArray removeAllObjects];
     [self setNeedsDisplay];
-    
-    
 }
 
 #pragma mark - drawRect
 
+/**
+ *  画连线
+ */
 -(void)drawRect:(CGRect)rect{
 //    创建路径.
     UIBezierPath *path = [UIBezierPath bezierPath];

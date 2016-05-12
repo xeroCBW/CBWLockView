@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "LockView.h"
-#import "CBWCircleView.h"
+#import "SettingKeyVC.h"
+#import "VerifyKeyVC.h"
+
+
 
 #define ScreenHW [UIScreen mainScreen].bounds.size.width
 
@@ -18,22 +20,24 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (IBAction)settingKeyAction:(id)sender {
+    
+    SettingKeyVC *settingVC = [[SettingKeyVC alloc]init];
+    
+    [self.navigationController pushViewController:settingVC animated:YES];
 
     
-    LockView *lockView = [[LockView alloc]init];
-    lockView.frame = CGRectMake(0, 0, 300, 300);
-    lockView.backgroundColor = [UIColor lightGrayColor];
-    lockView.center = self.view.center;
-    lockView.block = ^(NSString *str){
-        NSLog(@"选中的button编号为:%@",str);
-    };
+}
 
+
+- (IBAction)verifyKeyAction:(id)sender {
     
-    [self.view addSubview:lockView];
     
+    VerifyKeyVC *verifyVC = [[VerifyKeyVC alloc]init];
     
-    }
+    [self.navigationController pushViewController:verifyVC animated:YES];
+
+}
+
 
 @end
