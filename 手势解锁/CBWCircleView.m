@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor purpleColor];
+        self.backgroundColor = circleViewBackgroupColor;
         self.state = CircleViewStateNormal;
     }
     return self;
@@ -86,22 +86,22 @@
     //getter 方法返回成员属性
     
     if (self.state == CircleViewStateNormal) {
-        _outerCircleColor = [UIColor greenColor];
+        _outerCircleColor = outerCircleColorNormal;
     }else if (self.state == CircleViewStateSeleted){
-        _outerCircleColor = [UIColor yellowColor];
+        _outerCircleColor = outerCircleColorSelected;
     }else if (self.state == CircleViewStateError){
-         _outerCircleColor = [UIColor redColor];
+         _outerCircleColor = outerCircleColorError;
     }
     return _outerCircleColor;
 }
 -(UIColor *)innerCirCleColor{
     
     if (self.state == CircleViewStateNormal) {
-        _innerCirCleColor = [UIColor greenColor];
+        _innerCirCleColor = innnerCircleColorNormal;
     }else if (self.state == CircleViewStateSeleted){
-        _innerCirCleColor = [UIColor yellowColor];
+        _innerCirCleColor = innnerCircleColorSelected;
     }else if (self.state == CircleViewStateError){
-        _innerCirCleColor = [UIColor redColor];
+        _innerCirCleColor = innnerCircleColorError;
     }
     
     return _innerCirCleColor;

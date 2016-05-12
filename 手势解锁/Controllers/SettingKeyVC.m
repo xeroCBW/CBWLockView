@@ -60,6 +60,16 @@
     
       __weak typeof(self) weakSelf = self;
     
+    //由于中间加了",",所以长度要 X2
+    if (str.length < 9) {
+        
+        weakSelf.tipsLabel.text = lengthTips;
+        [weakSelf.tipsLabel.layer shake];
+        return;
+
+    }
+    
+    
     //第一次进来直接保存
     if (weakSelf.keyStr == nil) {
          weakSelf.keyStr = str;

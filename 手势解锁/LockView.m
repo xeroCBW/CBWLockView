@@ -107,16 +107,6 @@
 }
 
 
--(CBWCircleView *)buttonContainPoint:(CGPoint)point{
-    
-    for (CBWCircleView *view in self.subviews) {
-        if (CGRectContainsPoint(view.frame, point)) {
-            return view;
-        }
-    }
-    return nil;
-}
-
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     //1.进行判断
@@ -142,10 +132,11 @@
     NSMutableString *str = [NSMutableString string];
     
     for (CBWCircleView *circleView in self.selectedButtonArray) {
-        [str appendFormat:@"%ld,",circleView.tag];
+        [str appendFormat:@"%zd,",circleView.tag];
         circleView.state = CircleViewStateNormal;
     }
-
+    
+ 
     if (_lockViewHandle) {
         _lockViewHandle(str,self);
         
@@ -171,7 +162,15 @@
 }
 
 #pragma mark - private
-
+-(CBWCircleView *)buttonContainPoint:(CGPoint)point{
+    
+    for (CBWCircleView *view in self.subviews) {
+        if (CGRectContainsPoint(view.frame, point)) {
+            return view;
+        }
+    }
+    return nil;
+}
 - (CircleViewState)getCircleState
 {
     return [(CBWCircleView *)[self.selectedButtonArray firstObject] state];
