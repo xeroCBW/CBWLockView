@@ -43,7 +43,7 @@
     //画外圆
     [self drawCircleWithRadius:0 lineWidth:0 rect:rect color:self.outerCircleColor];
     //画内圆
-    [self drawCircleWithRadius:30 lineWidth:10 rect:rect color:self.innerCirCleColor];
+    [self drawCircleWithRadius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
 
     //画内圆的 border
 

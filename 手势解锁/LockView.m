@@ -10,8 +10,8 @@
 #import "CBWCircleView.h"
 
 
-#define ViewWH self.bounds.size.width
-#define margin 30
+
+
 
 @interface LockView ()
 
@@ -55,8 +55,6 @@
         
          CBWCircleView *circleView = [[CBWCircleView alloc]init];
         [self addSubview:circleView];
-        
-        
         circleView.tag = i;
     }
 
@@ -69,23 +67,23 @@
 
 -(void)setUpButtonFrame{
     
-    NSInteger numOfRow = 3;//行
-    NSInteger numofColumn = 3; //列
-    NSInteger count = self.subviews.count;//总数量
+    CGFloat itemViewWH = circleViewWH;
+    CGFloat marginValue = (self.frame.size.width - 3 * itemViewWH) / 3.0f;
     
-    CGFloat buttonWH = (ViewWH - (numOfRow - 1) *margin)/numOfRow;
-    
-    
-    for (int i = 0; i < count ; i++) {
+    [self.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
         
-        NSInteger indexOfRow = i % numofColumn;//每行的索引
-        NSInteger indexOfColumn = i / numOfRow;//第几列
+        NSUInteger row = idx % 3;
         
-        UIView *view = self.subviews[i];
+        NSUInteger col = idx / 3;
         
-        view.frame = CGRectMake(indexOfRow * (buttonWH + margin), indexOfColumn * (buttonWH + margin), buttonWH, buttonWH);
+        CGFloat x = marginValue * row + row * itemViewWH + marginValue/2;
         
-    }
+        CGFloat y = marginValue * col + col * itemViewWH + marginValue/2;
+        
+        CGRect frame = CGRectMake(x, y, itemViewWH, itemViewWH);
+        
+        subview.frame = frame;
+    }];
     
 }
 
