@@ -13,4 +13,9 @@
  *  buttonArray
  */
 @property(nonatomic,assign)NSInteger buttonArrayCount;
+
+/** 选中9宫格字符串*/
+@property (nonatomic ,strong) void (^block)(NSString *str) ;
+
+
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DC1CE41B3500932735 /* CBWCircleView.m */; };
+		D03D92E01CE4327900932735 /* LockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DF1CE4327900932735 /* LockConst.m */; };
 		D07E736A1C8D4E4100ED5EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73691C8D4E4100ED5EAB /* main.m */; };
 		D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736C1C8D4E4100ED5EAB /* AppDelegate.m */; };
 		D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736F1C8D4E4100ED5EAB /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		D03D92DB1CE41B3500932735 /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
 		D03D92DC1CE41B3500932735 /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
+		D03D92DE1CE4327900932735 /* LockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockConst.h; sourceTree = "<group>"; };
+		D03D92DF1CE4327900932735 /* LockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockConst.m; sourceTree = "<group>"; };
 		D07E73651C8D4E4100ED5EAB /* 手势解锁.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E73691C8D4E4100ED5EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D07E736B1C8D4E4100ED5EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				D07E739F1C8D4F3D00ED5EAB /* LockView.m */,
 				D03D92DB1CE41B3500932735 /* CBWCircleView.h */,
 				D03D92DC1CE41B3500932735 /* CBWCircleView.m */,
+				D03D92DE1CE4327900932735 /* LockConst.h */,
+				D03D92DF1CE4327900932735 /* LockConst.m */,
 				D07E73741C8D4E4100ED5EAB /* Assets.xcassets */,
 				D07E73761C8D4E4100ED5EAB /* LaunchScreen.storyboard */,
 				D07E73791C8D4E4100ED5EAB /* Info.plist */,
@@ -283,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03D92E01CE4327900932735 /* LockConst.m in Sources */,
 				D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */,
 				D07E73A01C8D4F3D00ED5EAB /* LockView.m in Sources */,
 				D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */,
