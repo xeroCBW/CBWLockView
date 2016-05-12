@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+static const NSString *firstTips = @"请再次输入密码";
+static const NSString *errorTips = @"与上次不统一,需要重新设置";
+static const float errorDisplayTime = 0.6f;
+
+
+
 @interface LockConst : NSObject
 
 //保存密码

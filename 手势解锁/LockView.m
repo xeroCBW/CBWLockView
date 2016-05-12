@@ -154,7 +154,7 @@
         
     //是否错误,在这里暂停几秒
         if ([self getCircleState] == CircleViewStateError) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(errorDisplayTime* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 for (CBWCircleView *circleView in self.selectedButtonArray) {
                     circleView.state = CircleViewStateNormal;
@@ -200,16 +200,16 @@
     if (state == CircleViewStateError) {
         color = [UIColor redColor];
     }else{
-        color = [UIColor greenColor];
+        color = [UIColor yellowColor];
     }
 
     
-//    创建路径.
+    //创建路径.
     UIBezierPath *path = [UIBezierPath bezierPath];
-//    取出所有保存的选中按钮连线.
+    //取出所有保存的选中按钮连线.
     for(int i = 0; i < self.selectedButtonArray.count;i++){
         UIView *circleView = self.selectedButtonArray[i];
-//        判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
+        //判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
         if(i == 0){
             //设置起点.
             [path moveToPoint:circleView.center];

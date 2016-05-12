@@ -9,12 +9,14 @@
 #import "SettingKeyVC.h"
 #import "LockView.h"
 #import "CBWCircleView.h"
-
+#import "CALayer+Anim.h"
+#import "LockConst.h"
 @interface SettingKeyVC ()
 
 /** 手势密码字符串*/
 @property (nonatomic ,copy) NSString *keyStr;
-
+/** 提示的 label*/
+@property (nonatomic ,weak) UILabel *tipsLabel;
 @end
 
 @implementation SettingKeyVC
@@ -39,8 +41,16 @@
         
     };
     
-    
     [self.view addSubview:lockView];
+    
+    UILabel *label = [[UILabel alloc]init];
+    
+    label.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, CGRectGetMinY(lockView.frame) - 60, 300,40);
+    label.backgroundColor = [UIColor lightGrayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:label];
+    
+    self.tipsLabel = label;
 
 }
 -(void)dealloc{
@@ -54,6 +64,7 @@
     //第一次进来直接保存
     if (weakSelf.keyStr == nil) {
          weakSelf.keyStr = str;
+        weakSelf.tipsLabel.text = firstTips;
     }else{
         //后面进来
         
@@ -64,6 +75,8 @@
         }else{
             //不返回,需要提示
             NSLog(@"两次不统一,需要重新设置");
+             weakSelf.tipsLabel.text = errorTips;
+            [weakSelf.tipsLabel.layer shake];
             //将选中状态变成错误,动画延迟一会
             for (CBWCircleView *circleView in lockView.selectedButtonArray) {
                 circleView.state = CircleViewStateError;
