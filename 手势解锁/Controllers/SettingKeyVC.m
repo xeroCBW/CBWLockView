@@ -68,7 +68,7 @@
             for (CBWCircleView *circleView in lockView.selectedButtonArray) {
                 circleView.state = CircleViewStateError;
             }
-          
+            [lockView  setNeedsDisplay];
         }
         
         

@@ -88,22 +88,24 @@ static float const radius = 60;
     //getter 方法返回成员属性
     
     if (self.state == CircleViewStateNormal) {
-        
         _outerCircleColor = [UIColor greenColor];
-        _innerCirCleColor = [UIColor whiteColor];
     }else if (self.state == CircleViewStateSeleted){
-        
         _outerCircleColor = [UIColor yellowColor];
-        _innerCirCleColor = [UIColor blueColor];
-        
     }else if (self.state == CircleViewStateError){
-        
          _outerCircleColor = [UIColor redColor];
-        _outerCircleColor = [UIColor redColor];
     }
-    
-    
     return _outerCircleColor;
 }
-
+-(UIColor *)innerCirCleColor{
+    
+    if (self.state == CircleViewStateNormal) {
+        _innerCirCleColor = [UIColor greenColor];
+    }else if (self.state == CircleViewStateSeleted){
+        _innerCirCleColor = [UIColor yellowColor];
+    }else if (self.state == CircleViewStateError){
+        _innerCirCleColor = [UIColor redColor];
+    }
+    
+    return _innerCirCleColor;
+}
 @end

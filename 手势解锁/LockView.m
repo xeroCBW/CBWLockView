@@ -191,6 +191,19 @@
  *  画连线
  */
 -(void)drawRect:(CGRect)rect{
+    
+    
+    //设置颜色
+    CircleViewState state = [self getCircleState];
+    NSLog(@"连线颜色%zd",state);
+    UIColor *color;
+    if (state == CircleViewStateError) {
+        color = [UIColor redColor];
+    }else{
+        color = [UIColor greenColor];
+    }
+
+    
 //    创建路径.
     UIBezierPath *path = [UIBezierPath bezierPath];
 //    取出所有保存的选中按钮连线.
@@ -198,23 +211,23 @@
         UIView *circleView = self.selectedButtonArray[i];
 //        判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
         if(i == 0){
-//            设置起点.
+            //设置起点.
             [path moveToPoint:circleView.center];
         }else{
-//            添加一根线到当前按钮的圆心.
+            //添加一根线到当前按钮的圆心.
             [path addLineToPoint:circleView.center];
         }
     }
     
-//    设置颜色
-    [[UIColor redColor] set];
-//    设置线宽
+    [color set];
+    
+    //设置线宽
     [path setLineWidth:5];
-//    设置线的连接样式
+    //设置线的连接样式
     [path setLineJoinStyle:kCGLineJoinRound];
     //设置连线的透明度
     [path strokeWithBlendMode:kCGBlendModeColor alpha:0.3];
-//    绘制路径.
+    //绘制路径.
     [path stroke];
 }
 #pragma mark - 判断字符串是否为空
