@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class LockView;
+@protocol LockViewDelegate <NSObject>
+@optional
+- (void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str;
+@end
+
 @interface LockView : UIView
 /**
  *  selectedButtonArray
@@ -20,6 +26,7 @@
 
 /** 选中9宫格字符串*/
 @property (nonatomic ,strong) void (^lockViewHandle)(NSString *str,LockView *lockView) ;
-
+/** 使用代理实现*/
+@property (nonatomic ,weak) id<LockViewDelegate>delegate;
 
 @end

@@ -10,7 +10,7 @@
 #import "LockView.h"
 #import "CBWCircleView.h"
 
-@interface SettingKeyVC ()
+@interface SettingKeyVC ()<LockViewDelegate>
 
 /** 手势密码字符串*/
 @property (nonatomic ,copy) NSString *keyStr;
@@ -33,12 +33,14 @@
     lockView.backgroundColor = [UIColor lightGrayColor];
     lockView.center = self.view.center;
     
-   __weak typeof(self) weakSelf = self;
-    lockView.lockViewHandle = ^(NSString *str,LockView *lockView){
-        NSLog(@"选中的button编号为:%@",str);
-        [weakSelf handleWithStr:str lockView:lockView];
-        
-    };
+    lockView.delegate = self;
+    
+//   __weak typeof(self) weakSelf = self;
+//    lockView.lockViewHandle = ^(NSString *str,LockView *lockView){
+//        NSLog(@"选中的button编号为:%@",str);
+//        [weakSelf handleWithStr:str lockView:lockView];
+//        
+//    };
     
     [self.view addSubview:lockView];
     
@@ -55,6 +57,17 @@
 -(void)dealloc{
     NSLog(@"%s",__func__);
 }
+
+#pragma mark -  delegate
+
+- (void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str{
+    
+    [self handleWithStr:str lockView:lockView];
+    
+}
+
+
+
 #pragma mark - private
 - (void)handleWithStr:(NSString *)str lockView:(LockView *)lockView{
     

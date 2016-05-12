@@ -133,31 +133,49 @@
     }
     
  
+    
+    if ([_delegate respondsToSelector:@selector(lockView:setKeyActionEndStr:)]) {
+        
+        [_delegate lockView:self setKeyActionEndStr:str]; // 通知执行协议方法
+        
+        [self checkState];
+        
+    }
+    
+    
     if (_lockViewHandle) {
+        
         _lockViewHandle(str,self);
         
-        
-    //是否错误,在这里暂停几秒
-        if ([self getCircleState] == CircleViewStateError) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(errorDisplayTime* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-                for (CBWCircleView *circleView in self.selectedButtonArray) {
-                    circleView.state = CircleViewStateNormal;
-                }
-
-                [self resetView];
-                
-            });
-        }else{
-            [self resetView];
-        }
-        
+        [self checkState];
         
     }
     
 }
 
 #pragma mark - private
+
+
+- (void)checkState{
+    
+    //是否错误,在这里暂停几秒
+    if ([self getCircleState] == CircleViewStateError) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(errorDisplayTime* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            for (CBWCircleView *circleView in self.selectedButtonArray) {
+                circleView.state = CircleViewStateNormal;
+            }
+            
+            [self resetView];
+            
+        });
+    }else{
+        [self resetView];
+    }
+
+}
+
+
 -(CBWCircleView *)buttonContainPoint:(CGPoint)point{
     
     for (CBWCircleView *view in self.subviews) {
