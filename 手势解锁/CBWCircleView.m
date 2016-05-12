@@ -33,7 +33,7 @@ static float const radius = 60;
 -(void)drawRect:(CGRect)rect{
    
     //画外圆
-    [self drawCircleWithRadius:radius lineWidth:lineWidth rect:rect color:self.outerCircleColor];
+    [self drawCircleWithRadius:0 lineWidth:0 rect:rect color:self.outerCircleColor];
     //画内圆
     
     //画内圆的 border
@@ -46,6 +46,8 @@ static float const radius = 60;
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     // 画圆--默认是方形的,
     radius = radius ? radius:rect.size.width / 2.0;
+    lineWidth = lineWidth ? lineWidth : 3.0;
+    
     CGContextAddArc(ctx, rect.size.width / 2.0, rect.size.height / 2.0, radius - lineWidth / 2.0, 0, 2 * M_PI, 0);
     //设置颜色
     [color set];

@@ -7,6 +7,8 @@
 //
 
 #import "LockView.h"
+#import "CBWCircleView.h"
+
 
 #define ViewWH self.bounds.size.width
 #define margin 10
@@ -55,15 +57,11 @@
     
     for (int i = 0; i < count ; i++) {
         
-        UIButton *button = [[UIButton alloc]init];
-        [self addSubview:button];
+         CBWCircleView *circleView = [[CBWCircleView alloc]init];
+        [self addSubview:circleView];
         
-        button.userInteractionEnabled = NO;
         
-        [button setImage:[UIImage imageNamed:@"gesture_node_normal"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"gesture_node_selected"] forState:UIControlStateSelected];
-        
-        button.tag = i;
+        circleView.tag = i;
     }
 
 }
@@ -87,9 +85,9 @@
         NSInteger indexOfRow = i % numofColumn;//每行的索引
         NSInteger indexOfColumn = i / numOfRow;//第几列
         
-        UIButton *button = self.subviews[i];
+        UIView *view = self.subviews[i];
         
-        button.frame = CGRectMake(indexOfRow * (buttonWH + margin), indexOfColumn * (buttonWH + margin), buttonWH, buttonWH);
+        view.frame = CGRectMake(indexOfRow * (buttonWH + margin), indexOfColumn * (buttonWH + margin), buttonWH, buttonWH);
         
     }
     
@@ -104,22 +102,22 @@
     //2.转换点的位置
     CGPoint point = [touch locationInView:self];
     //3.判断button是否存在
-    UIButton *button = [self buttonContainPoint:point];
+    CBWCircleView *view = [self buttonContainPoint:point];
     //如果button存在就放在数组中保存
-    if (button != nil) {
-        button.selected = YES;
-        [self.selectedButtonArray addObject:button];
+    if (view != nil) {
+        view.state  = CircleViewStateSeleted;
+        [self.selectedButtonArray addObject:view];
     }
     
     
 }
 
 
--(UIButton *)buttonContainPoint:(CGPoint)point{
+-(CBWCircleView *)buttonContainPoint:(CGPoint)point{
     
-    for (UIButton *button in self.subviews) {
-        if (CGRectContainsPoint(button.frame, point)) {
-            return button;
+    for (CBWCircleView *view in self.subviews) {
+        if (CGRectContainsPoint(view.frame, point)) {
+            return view;
         }
     }
     return nil;
@@ -132,12 +130,12 @@
     //2.转换点的位置
     CGPoint point = [touch locationInView:self];
     //3.判断button是否存在
-    UIButton *button = [self buttonContainPoint:point];
+    CBWCircleView *circleView = [self buttonContainPoint:point];
     
-    if (button != nil && button.selected == NO) {
+    if (circleView != nil && circleView.state != CircleViewStateSeleted) {
         
-        button.selected = YES;
-        [self.selectedButtonArray addObject:button];
+        circleView.state = CircleViewStateSeleted;
+        [self.selectedButtonArray addObject:circleView];
     }
     
     //调用重绘命令
@@ -149,9 +147,9 @@
     
     NSMutableString *str = [NSMutableString string];
     
-    for (UIButton *button in self.selectedButtonArray) {
-        [str appendFormat:@"%ld,",button.tag];
-        button.selected = NO;
+    for (CBWCircleView *circleView in self.selectedButtonArray) {
+        [str appendFormat:@"%ld,",circleView.tag];
+        circleView.state = CircleViewStateNormal;
     }
     NSLog(@"选中的button编号为:%@",str);
    
@@ -169,14 +167,14 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
 //    取出所有保存的选中按钮连线.
     for(int i = 0; i < self.selectedButtonArray.count;i++){
-        UIButton *btn = self.selectedButtonArray[i];
+        UIView *circleView = self.selectedButtonArray[i];
 //        判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
         if(i == 0){
 //            设置起点.
-            [path moveToPoint:btn.center];
+            [path moveToPoint:circleView.center];
         }else{
 //            添加一根线到当前按钮的圆心.
-            [path addLineToPoint:btn.center];
+            [path addLineToPoint:circleView.center];
         }
     }
     

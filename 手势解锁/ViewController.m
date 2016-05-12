@@ -22,10 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CBWCircleView *circleView = [[CBWCircleView alloc]init];
-    circleView.frame = CGRectMake(0, 0, 200,200);
-    circleView.state = CircleViewStateError;
-    [self.view addSubview:circleView];
+//    CBWCircleView *circleView = [[CBWCircleView alloc]init];
+//    circleView.frame = CGRectMake(0, 0, 200,200);
+//    circleView.state = CircleViewStateError;
+//    [self.view addSubview:circleView];
     
     
     }
@@ -44,8 +44,8 @@
 -(void)viewDidLayoutSubviews{
     [super viewWillLayoutSubviews];
     
-//    self.lockView.frame = CGRectMake(0, 0, ScreenHW, ScreenHW);
-//    self.lockView.center = self.view.center;
+    self.lockView.frame = CGRectMake(0, 0, ScreenHW, ScreenHW);
+    self.lockView.center = self.view.center;
     
 }
 @end
