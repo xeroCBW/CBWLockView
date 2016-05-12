@@ -23,6 +23,7 @@ static float const radius = 60;
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor purpleColor];
+        self.state = CircleViewStateNormal;
     }
     return self;
 }
