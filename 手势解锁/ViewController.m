@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LockView.h"
+#import "CBWCircleView.h"
 
 #define ScreenHW [UIScreen mainScreen].bounds.size.width
 
@@ -20,6 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CBWCircleView *circleView = [[CBWCircleView alloc]init];
+    circleView.frame = CGRectMake(0, 0, 200,200);
+    circleView.state = CircleViewStateError;
+    [self.view addSubview:circleView];
+    
     
     }
 
@@ -34,20 +41,11 @@
     return _lockView;
 }
 
-
-#pragma mark - initUI
-
--(void)initUI{
-    
-    
-    
-}
-
 -(void)viewDidLayoutSubviews{
     [super viewWillLayoutSubviews];
     
-    self.lockView.frame = CGRectMake(0, 0, ScreenHW, ScreenHW);
-    self.lockView.center = self.view.center;
+//    self.lockView.frame = CGRectMake(0, 0, ScreenHW, ScreenHW);
+//    self.lockView.center = self.view.center;
     
 }
 @end
