@@ -70,12 +70,13 @@
         
         if ([weakSelf.keyStr isEqualToString:str]) {
             //将密码保存到本地
+            [LockConst saveGesture:str Key:gestureKey];
             //就返回
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             //不返回,需要提示
             NSLog(@"两次不统一,需要重新设置");
-             weakSelf.tipsLabel.text = errorTips;
+             weakSelf.tipsLabel.text = setKeyerrorTips;
             [weakSelf.tipsLabel.layer shake];
             //将选中状态变成错误,动画延迟一会
             for (CBWCircleView *circleView in lockView.selectedButtonArray) {
