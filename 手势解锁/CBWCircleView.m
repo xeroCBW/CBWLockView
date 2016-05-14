@@ -39,10 +39,11 @@
 //重写 drawRect 方法
 
 -(void)drawRect:(CGRect)rect{
-   
+  
     //画外圆
-    [self drawCircleWithRadius:0 lineWidth:0 rect:rect color:self.outerCircleColor];
+    [self drawCircleWithRadius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
     //画内圆
+    
     [self drawCircleWithRadius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
 
     //画内圆的 border
@@ -91,6 +92,10 @@
         _outerCircleColor = outerCircleColorSelected;
     }else if (self.state == CircleViewStateError){
          _outerCircleColor = outerCircleColorError;
+    }else if (self.state == CircleViewStateInfoNormal){
+        _outerCircleColor = outerCircleColorInfoNormal;
+    }else if (self.state == CircleViewStateInfoSelected){
+        _outerCircleColor = outerCircleColorInfoSelect;
     }
     return _outerCircleColor;
 }
@@ -102,6 +107,10 @@
         _innerCirCleColor = innnerCircleColorSelected;
     }else if (self.state == CircleViewStateError){
         _innerCirCleColor = innnerCircleColorError;
+    }else if (self.state == CircleViewStateInfoNormal){
+        _innerCirCleColor = innerCircleColorInfoNormal;
+    }else if (self.state == CircleViewStateInfoSelected){
+        _innerCirCleColor = innerCircleColorInfoSelect;
     }
     
     return _innerCirCleColor;

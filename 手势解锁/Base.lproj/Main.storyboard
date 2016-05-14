@@ -17,23 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qt-SH-NKn">
-                                <rect key="frame" x="270" y="120" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qt-SH-NKn">
+                                <rect key="frame" x="270" y="164" width="60" height="30"/>
                                 <state key="normal" title="设置密码"/>
                                 <connections>
                                     <action selector="settingKeyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ejQ-y3-ObP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs5-Zo-YcK">
-                                <rect key="frame" x="270" y="200" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs5-Zo-YcK">
+                                <rect key="frame" x="270" y="244" width="60" height="30"/>
                                 <state key="normal" title="验证密码"/>
                                 <connections>
                                     <action selector="verifyKeyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axN-TO-3m5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY8-ea-zNg">
+                                <rect key="frame" x="277" y="324" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfz-P8-caw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AY8-ea-zNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5j5-xB-7rg"/>
+                            <constraint firstItem="AY8-ea-zNg" firstAttribute="top" secondItem="bs5-Zo-YcK" secondAttribute="bottom" constant="50" id="KGd-bO-9uO"/>
                             <constraint firstItem="bs5-Zo-YcK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iuY-Re-TPd"/>
                             <constraint firstItem="bs5-Zo-YcK" firstAttribute="top" secondItem="0Qt-SH-NKn" secondAttribute="bottom" constant="50" id="ksU-eV-sR7"/>
                             <constraint firstItem="0Qt-SH-NKn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="nYL-ZB-4Ro"/>

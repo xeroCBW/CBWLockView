@@ -12,6 +12,9 @@ typedef enum : NSUInteger {
     CircleViewStateNormal = 1,
     CircleViewStateSeleted,
     CircleViewStateError,
+    CircleViewStateInfoNormal,
+    CircleViewStateInfoSelected,
+    
 } CircleViewState;
 
 

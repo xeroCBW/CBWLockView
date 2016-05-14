@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SettingKeyVC.h"
 #import "VerifyKeyVC.h"
+#import "TestView.h"
 
 
 
@@ -46,5 +47,12 @@
 
 }
 
+- (IBAction)test:(id)sender {
+    TestView *test = [[TestView alloc]init];
+    
+    
+    [self.navigationController pushViewController:test animated:YES];
+    
+}
 
 @end

@@ -15,10 +15,12 @@ static NSString *setKeyerrorTips = @"与上次不统一,需要重新设置";
 static NSString *verifyKeyTips = @"密码错误,请重新输入";
 static NSString *gestureKey = @"gestureKey";
 static const float circleViewWH = 60;
+static const float circleInfoRadius = 5;
 static const float errorDisplayTime = 0.6f;
 
-static const float innerCircleRadius = 20;
-static const float innerCircleWidth = 20;//设置宽度等于半径,就会等于实心圆
+static const float outerCircleWidth = 1;
+static const float innerCircleRadius = 20;//infoView 的内圈比外圈大,就不会显示出来了
+static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
 
 #define mainScreenW [UIScreen mainScreen].bounds.size.width
 #define circleViewBackgroupColor [UIColor clearColor]
@@ -28,9 +30,15 @@ static const float innerCircleWidth = 20;//设置宽度等于半径,就会等于
 #define outerCircleColorSelected [UIColor yellowColor]
 #define outerCircleColorError [UIColor redColor]
 
+#define outerCircleColorInfoNormal [UIColor whiteColor]
+#define outerCircleColorInfoSelect [UIColor redColor]
+
 #define innnerCircleColorNormal [UIColor clearColor]
 #define innnerCircleColorSelected [UIColor yellowColor]
 #define innnerCircleColorError [UIColor redColor]
+
+#define innerCircleColorInfoNormal [UIColor greenColor]
+#define innerCircleColorInfoSelect [UIColor yellowColor]
 
 @interface LockConst : NSObject
 

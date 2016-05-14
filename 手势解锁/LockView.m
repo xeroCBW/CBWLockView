@@ -206,7 +206,7 @@
     
     //设置颜色
     CircleViewState state = [self getCircleState];
-    NSLog(@"连线颜色%zd",state);
+//    NSLog(@"连线颜色%zd",state);
     UIColor *color;
     if (state == CircleViewStateError) {
         color = [UIColor redColor];

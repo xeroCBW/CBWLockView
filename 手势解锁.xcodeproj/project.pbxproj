@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01D7F6D1CE76FE2000A1307 /* LockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */; };
+		D01D7F701CE78B1F000A1307 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D7F6F1CE78B1F000A1307 /* TestView.m */; };
 		D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DC1CE41B3500932735 /* CBWCircleView.m */; };
 		D03D92E01CE4327900932735 /* LockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DF1CE4327900932735 /* LockConst.m */; };
 		D07E736A1C8D4E4100ED5EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73691C8D4E4100ED5EAB /* main.m */; };
@@ -42,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01D7F6B1CE76FE2000A1307 /* LockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockInfoView.h; sourceTree = "<group>"; };
+		D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockInfoView.m; sourceTree = "<group>"; };
+		D01D7F6E1CE78B1F000A1307 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		D01D7F6F1CE78B1F000A1307 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		D03D92DB1CE41B3500932735 /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
 		D03D92DC1CE41B3500932735 /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
 		D03D92DE1CE4327900932735 /* LockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockConst.h; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 				D07E739F1C8D4F3D00ED5EAB /* LockView.m */,
 				D03D92DB1CE41B3500932735 /* CBWCircleView.h */,
 				D03D92DC1CE41B3500932735 /* CBWCircleView.m */,
+				D01D7F6B1CE76FE2000A1307 /* LockInfoView.h */,
+				D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */,
 				D03D92DE1CE4327900932735 /* LockConst.h */,
 				D03D92DF1CE4327900932735 /* LockConst.m */,
 				D07E73741C8D4E4100ED5EAB /* Assets.xcassets */,
@@ -178,6 +186,8 @@
 				D0B6BEB91CE450D40096B778 /* SettingKeyVC.m */,
 				D0B6BEBB1CE450E80096B778 /* VerifyKeyVC.h */,
 				D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */,
+				D01D7F6E1CE78B1F000A1307 /* TestView.h */,
+				D01D7F6F1CE78B1F000A1307 /* TestView.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -328,7 +338,9 @@
 			files = (
 				D03D92E01CE4327900932735 /* LockConst.m in Sources */,
 				D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */,
+				D01D7F6D1CE76FE2000A1307 /* LockInfoView.m in Sources */,
 				D07E73A01C8D4F3D00ED5EAB /* LockView.m in Sources */,
+				D01D7F701CE78B1F000A1307 /* TestView.m in Sources */,
 				D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */,
 				D0B6BEBA1CE450D40096B778 /* SettingKeyVC.m in Sources */,
 				D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */,

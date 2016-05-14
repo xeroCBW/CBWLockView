@@ -9,6 +9,7 @@
 #import "SettingKeyVC.h"
 #import "LockView.h"
 #import "CBWCircleView.h"
+#import "LockInfoView.h"
 
 @interface SettingKeyVC ()<LockViewDelegate>
 
@@ -16,6 +17,8 @@
 @property (nonatomic ,copy) NSString *keyStr;
 /** 提示的 label*/
 @property (nonatomic ,weak) UILabel *tipsLabel;
+/** 选中的小9宫格 view*/
+@property (nonatomic ,weak)  LockInfoView *infoView;
 @end
 
 @implementation SettingKeyVC
@@ -45,13 +48,21 @@
     [self.view addSubview:lockView];
     
     UILabel *label = [[UILabel alloc]init];
-    
     label.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, CGRectGetMinY(lockView.frame) - 60, 300,40);
     label.backgroundColor = [UIColor lightGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
     self.tipsLabel = label;
+    
+    
+    LockInfoView *infoView = [[LockInfoView alloc]init];
+    infoView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 50)/2.0, CGRectGetMinY(label.frame) - 60, 50,50);
+    self.infoView = infoView;
+    
+    [self.view addSubview:infoView];
+    
+
 
 }
 -(void)dealloc{
@@ -91,6 +102,21 @@
     if (weakSelf.keyStr == nil) {
          weakSelf.keyStr = str;
         weakSelf.tipsLabel.text = firstTips;
+        
+        // infoView选中状态下按钮
+       
+        NSMutableArray *array = [NSMutableArray array];
+        for (CBWCircleView *circleView in lockView.selectedButtonArray) {
+            
+            NSString *buttonIndex = [NSString stringWithFormat:@"%ld",circleView.tag];
+            
+            [array addObject:buttonIndex];
+            
+        }
+         weakSelf.infoView.selectedButtonsArray = array;
+
+        
+        
     }else{
         //后面进来
         
