@@ -31,5 +31,6 @@ typedef enum : NSUInteger {
 
 /** 角度 */
 @property (nonatomic,assign) CGFloat angle;
-
+/** infoView 还是普通的 View*/
+@property (nonatomic ,assign,) BOOL normalViewType;
 @end

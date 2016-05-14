@@ -45,6 +45,7 @@
         
         CBWCircleView *circle = [[CBWCircleView alloc] init];
         circle.state = CircleViewStateInfoNormal;
+        circle.normalViewType = NO;
         circle.tag = i;
         
         [self addSubview:circle];

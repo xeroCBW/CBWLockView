@@ -11,7 +11,7 @@
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 static NSString *lengthTips = @"长度必须大于4";
 static NSString *firstTips = @"请再次输入密码";
-static NSString *setKeyerrorTips = @"与上次不统一,需要重新设置";
+static NSString *setKeyerrorTips = @"与上次绘制不一致,请重新设置";
 static NSString *verifyKeyTips = @"密码错误,请重新输入";
 static NSString *gestureKey = @"gestureKey";
 static const float circleViewWH = 60;
@@ -19,8 +19,8 @@ static const float circleInfoRadius = 5;
 static const float errorDisplayTime = 0.6f;
 
 static const float outerCircleWidth = 1;
-static const float innerCircleRadius = 20;//infoView 的内圈比外圈大,就不会显示出来了
-static const float innerCircleWidth = 1;//设置宽度等于半径,就会等于实心圆
+static const float innerCircleRadius = 10;//infoView 的内圈比外圈大,就不会显示出来了
+static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
 
 static const float lineWidth = 1.0f;
 /**

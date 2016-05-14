@@ -50,6 +50,7 @@
     for (int i = 0; i < count ; i++) {
         
          CBWCircleView *circleView = [[CBWCircleView alloc]init];
+        circleView.normalViewType = YES;
         [self addSubview:circleView];
         circleView.tag = i;
     }
@@ -171,7 +172,7 @@
 - (void)checkState{
     
     //是否错误,在这里暂停几秒
-    if ([self getCircleState] == CircleViewStateError) {
+    if ([self getCircleState] == CircleViewStateError ||[self getCircleState] == CircleViewStateLastOneError) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(errorDisplayTime* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             for (CBWCircleView *circleView in self.selectedButtonArray) {
@@ -222,7 +223,7 @@
     CircleViewState state = [self getCircleState];
 //    NSLog(@"连线颜色%zd",state);
     UIColor *color;
-    if (state == CircleViewStateError) {
+    if (state == CircleViewStateError ||[self getCircleState] == CircleViewStateLastOneError) {
         color = [UIColor redColor];
     }else{
         color = [UIColor yellowColor];

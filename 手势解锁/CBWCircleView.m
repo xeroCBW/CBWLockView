@@ -52,7 +52,10 @@
     [self drawCircleWithContext:ctx radius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
     //画内圆
     
-    [self drawCircleWithContext:ctx radius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
+    if (self.normalViewType == YES) {
+        
+        [self drawCircleWithContext:ctx radius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
+    }
 
     //画内圆的 border
 
