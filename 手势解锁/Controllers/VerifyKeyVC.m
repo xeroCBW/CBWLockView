@@ -79,9 +79,20 @@
         weakSelf.tipsLabel.text = verifyKeyTips;
         [weakSelf.tipsLabel.layer shake];
         //将选中状态变成错误,动画延迟一会
-        for (CBWCircleView *circleView in lockView.selectedButtonArray) {
+//        for (CBWCircleView *circleView in lockView.selectedButtonArray) {
+//            circleView.state = CircleViewStateError;
+//        }
+        
+        for (int i = 0;i < lockView.selectedButtonArray.count ; i ++) {
+            CBWCircleView *circleView = lockView.selectedButtonArray[i];
             circleView.state = CircleViewStateError;
+            
+            if (i == lockView.selectedButtonArray.count - 1) {
+                circleView.state = CircleViewStateLastOneError;
+            }
         }
+
+        
         [lockView  setNeedsDisplay];
         
         

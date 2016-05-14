@@ -32,10 +32,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     LockView *lockView = [[LockView alloc]init];
-    lockView.frame = CGRectMake(0, 0, 300, 300);
+    lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, 200, 300, 300);
     lockView.backgroundColor = [UIColor lightGrayColor];
-    lockView.center = self.view.center;
-    
+ 
     lockView.delegate = self;
     
 //   __weak typeof(self) weakSelf = self;
