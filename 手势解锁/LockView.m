@@ -277,18 +277,18 @@
     CGFloat angle = atan2(last_1_y - last_2_y, last_1_x - last_2_x) + M_PI_2;
     [lastTwo setAngle:angle];
     
-    // 2.处理跳跃连线
-    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
-    
-    CBWCircleView *centerCircle = [self enumCircleSetToFindWhichSubviewContainTheCenterPoint:center];
-    
-    if (centerCircle != nil) {
-        
-        // 把跳过的圆加到数组中，它的位置是倒数第二个
-        if (![self.selectedButtonArray containsObject:centerCircle]) {
-            [self.selectedButtonArray insertObject:centerCircle atIndex:self.selectedButtonArray.count - 1];
-        }
-    }
+//    // 2.处理跳跃连线
+//    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
+//
+//    CBWCircleView *centerCircle = [self enumCircleSetToFindWhichSubviewContainTheCenterPoint:center];
+//    
+//    if (centerCircle != nil) {
+//        
+//        // 把跳过的圆加到数组中，它的位置是倒数第二个
+//        if (![self.selectedButtonArray containsObject:centerCircle]) {
+//            [self.selectedButtonArray insertObject:centerCircle atIndex:self.selectedButtonArray.count - 1];
+//        }
+//    }
 }
 
 #pragma mark - 提供两个点，返回一个它们的中点
