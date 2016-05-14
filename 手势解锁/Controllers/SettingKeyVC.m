@@ -73,6 +73,7 @@
 
 - (void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str{
     
+    NSLog(@"%@",str);
     [self handleWithStr:str lockView:lockView];
     
 }

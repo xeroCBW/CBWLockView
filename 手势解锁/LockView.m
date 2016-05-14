@@ -99,7 +99,8 @@
         [self.selectedButtonArray addObject:view];
     }
     
-    
+    // 数组中最后一个对象的处理
+    [self circleSetLastObjectWithState:CircleViewStateLastOneSelected];
 }
 
 
@@ -112,12 +113,23 @@
     //3.判断button是否存在
     CBWCircleView *circleView = [self buttonContainPoint:point];
     
-    if (circleView != nil && circleView.state != CircleViewStateSeleted) {
+    if (circleView != nil && circleView.state != CircleViewStateSeleted && circleView.state != CircleViewStateLastOneSelected) {
         
         circleView.state = CircleViewStateSeleted;
         [self.selectedButtonArray addObject:circleView];
+        
+        [self calAngleAndconnectTheJumpedCircle];
     }
     
+    
+    [self.selectedButtonArray enumerateObjectsUsingBlock:^(CBWCircleView *circle, NSUInteger idx, BOOL *stop) {
+        
+        [circle setState:CircleViewStateSeleted];
+    }];
+
+    // 数组中最后一个对象的处理
+    [self circleSetLastObjectWithState:CircleViewStateLastOneSelected];
+
     //调用重绘命令
     [self setNeedsDisplay];
 }
@@ -193,6 +205,8 @@
 - (void)resetView{
     //清空所有的选中按钮--重绘
     [self.selectedButtonArray removeAllObjects];
+    [self resetAllCirclesDirect];
+    
     [self setNeedsDisplay];
 }
 
@@ -233,13 +247,96 @@
     [color set];
     
     //设置线宽
-    [path setLineWidth:5];
+    [path setLineWidth:lineWidth];
     //设置线的连接样式
     [path setLineJoinStyle:kCGLineJoinRound];
     //设置连线的透明度
     [path strokeWithBlendMode:kCGBlendModeColor alpha:0.3];
     //绘制路径.
     [path stroke];
+}
+#pragma mark - 每添加一个圆，就计算一次方向
+-(void)calAngleAndconnectTheJumpedCircle{
+    
+    if(self.selectedButtonArray == nil || [self.selectedButtonArray count] <= 1) return;
+    
+    //取出最后一个对象
+    CBWCircleView *lastOne = [self.selectedButtonArray lastObject];
+    
+    //倒数第二个
+    CBWCircleView *lastTwo = [self.selectedButtonArray objectAtIndex:(self.selectedButtonArray.count -2)];
+    
+    //计算倒数第二个的位置
+    CGFloat last_1_x = lastOne.center.x;
+    CGFloat last_1_y = lastOne.center.y;
+    CGFloat last_2_x = lastTwo.center.x;
+    CGFloat last_2_y = lastTwo.center.y;
+    
+    // 1.计算角度（反正切函数）
+    CGFloat angle = atan2(last_1_y - last_2_y, last_1_x - last_2_x) + M_PI_2;
+    [lastTwo setAngle:angle];
+    
+    // 2.处理跳跃连线
+    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
+    
+    CBWCircleView *centerCircle = [self enumCircleSetToFindWhichSubviewContainTheCenterPoint:center];
+    
+    if (centerCircle != nil) {
+        
+        // 把跳过的圆加到数组中，它的位置是倒数第二个
+        if (![self.selectedButtonArray containsObject:centerCircle]) {
+            [self.selectedButtonArray insertObject:centerCircle atIndex:self.selectedButtonArray.count - 1];
+        }
+    }
+}
+
+#pragma mark - 提供两个点，返回一个它们的中点
+- (CGPoint)centerPointWithPointOne:(CGPoint)pointOne pointTwo:(CGPoint)pointTwo
+{
+    CGFloat x1 = pointOne.x > pointTwo.x ? pointOne.x : pointTwo.x;
+    CGFloat x2 = pointOne.x < pointTwo.x ? pointOne.x : pointTwo.x;
+    CGFloat y1 = pointOne.y > pointTwo.y ? pointOne.y : pointTwo.y;
+    CGFloat y2 = pointOne.y < pointTwo.y ? pointOne.y : pointTwo.y;
+    
+    return CGPointMake((x1+x2)/2, (y1 + y2)/2);
+}
+
+#pragma mark - 给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
+/**
+ *  给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
+ *
+ *  @param point 当前点
+ *
+ *  @return 点所在的圆
+ */
+- (CBWCircleView *)enumCircleSetToFindWhichSubviewContainTheCenterPoint:(CGPoint)point
+{
+    CBWCircleView *centerCircle;
+    for (CBWCircleView *circle in self.subviews) {
+        if (CGRectContainsPoint(circle.frame, point)) {
+            centerCircle = circle;
+        }
+    }
+    
+    if (![self.selectedButtonArray containsObject:centerCircle]) {
+        // 这个circle的角度和倒数第二个circle的角度一致
+        centerCircle.angle = [[self.selectedButtonArray objectAtIndex:self.selectedButtonArray.count - 2] angle];
+    }
+    
+    return centerCircle; // 注意：可能返回的是nil，就是当前点不在圆内
+}
+
+- (void)resetAllCirclesDirect
+{
+    [self.subviews enumerateObjectsUsingBlock:^(CBWCircleView *obj, NSUInteger idx, BOOL *stop) {
+        [obj setAngle:0];
+    }];
+}
+
+#pragma mark - 对数组中最后一个对象的处理
+- (void)circleSetLastObjectWithState:(CircleViewState)state
+{
+    [[self.selectedButtonArray lastObject] setState:state];
 }
 
 @end

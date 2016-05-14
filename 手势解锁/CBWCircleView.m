@@ -15,6 +15,10 @@
 
 /** 内圈圆颜色*/
 @property (nonatomic ,strong) UIColor *innerCirCleColor;
+/**
+ *  三角形颜色
+ */
+@property (nonatomic, strong) UIColor *trangleColor;
 @end
 
 @implementation CBWCircleView
@@ -25,6 +29,7 @@
     if (self) {
         self.backgroundColor = circleViewBackgroupColor;
         self.state = CircleViewStateNormal;
+        self.arrow = YES;
     }
     return self;
 }
@@ -39,21 +44,30 @@
 //重写 drawRect 方法
 
 -(void)drawRect:(CGRect)rect{
-  
+    
+  CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+   
     //画外圆
-    [self drawCircleWithRadius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
+    [self drawCircleWithContext:ctx radius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
     //画内圆
     
-    [self drawCircleWithRadius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
+    [self drawCircleWithContext:ctx radius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
 
     //画内圆的 border
 
+    
+    //画三角形状
+    if (self.arrow) {
+         [self transFormCtx:ctx rect:rect];
+        // 画三角形箭头
+        [self drawTrangleWithContext:ctx topPoint:CGPointMake(rect.size.width/2, 10) length:kTrangleLength color:self.trangleColor];
+    }
+
 }
 
-- (void)drawCircleWithRadius:(float )radius lineWidth:(float )lineWidth rect:(CGRect )rect color:(UIColor *)color{
-    
-    // 1.获取上下文
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
+- (void)drawCircleWithContext:(CGContextRef)ctx radius:(float )radius lineWidth:(float )lineWidth rect:(CGRect )rect color:(UIColor *)color{
+#warning 是否要释放 release 上下文
     // 画圆--默认是方形的,
     radius = radius ? radius:rect.size.width / 2.0;
     lineWidth = lineWidth ? lineWidth : 3.0;
@@ -69,7 +83,41 @@
 
     
 }
+#pragma mark - 画三角形
+/**
+ *  画三角形
+ *
+ *  @param ctx    图形上下文
+ *  @param point  顶点
+ *  @param length 边长
+ *  @param color  绘制颜色
+ */
+- (void)drawTrangleWithContext:(CGContextRef)ctx topPoint:(CGPoint)point length:(CGFloat)length color:(UIColor *)color
+{
+    
+    CGMutablePathRef trianglePathM = CGPathCreateMutable();
+    CGPathMoveToPoint(trianglePathM, NULL, point.x, point.y);
+    CGPathAddLineToPoint(trianglePathM, NULL, point.x - length/2, point.y + length/2);
+    CGPathAddLineToPoint(trianglePathM, NULL, point.x + length/2, point.y + length/2);
+    CGContextAddPath(ctx, trianglePathM);
+    [color set];
+    CGContextFillPath(ctx);
+    CGPathRelease(trianglePathM);
+    
 
+}
+/*
+ *  上下文旋转
+ */
+-(void)transFormCtx:(CGContextRef)ctx rect:(CGRect)rect{
+//    if(self.angle == 0) return;
+    CGFloat translateXY = rect.size.width * .5f;
+    //平移
+    CGContextTranslateCTM(ctx, translateXY, translateXY);
+    CGContextRotateCTM(ctx, self.angle);
+    //再平移回来
+    CGContextTranslateCTM(ctx, -translateXY, -translateXY);
+}
 
 #pragma mark - setter && getter
 
@@ -96,6 +144,10 @@
         _outerCircleColor = outerCircleColorInfoNormal;
     }else if (self.state == CircleViewStateInfoSelected){
         _outerCircleColor = outerCircleColorInfoSelect;
+    }else if (self.state == CircleViewStateLastOneError){
+        _outerCircleColor = outerCircleColorError;
+    }else if (self.state == CircleViewStateLastOneSelected){
+        _outerCircleColor = outerCircleColorSelected;
     }
     return _outerCircleColor;
 }
@@ -111,8 +163,42 @@
         _innerCirCleColor = innerCircleColorInfoNormal;
     }else if (self.state == CircleViewStateInfoSelected){
         _innerCirCleColor = innerCircleColorInfoSelect;
+    }else if (self.state == CircleViewStateLastOneError){
+        _innerCirCleColor = innnerCircleColorError;
+    }else if (self.state == CircleViewStateLastOneSelected){
+        _innerCirCleColor = innnerCircleColorSelected;
     }
     
     return _innerCirCleColor;
+}
+-(UIColor *)trangleColor{
+    
+    if (self.state == CircleViewStateNormal) {
+        _trangleColor = trangleColorNormal;
+    }else if (self.state == CircleViewStateSeleted){
+        _trangleColor = trangleColorSelected;
+    }else if (self.state == CircleViewStateError){
+        _trangleColor = trangleColorError;
+    }else if (self.state == CircleViewStateInfoNormal){
+        _trangleColor = trangleColorInfoNormal;
+    }else if (self.state == CircleViewStateInfoSelected){
+        _trangleColor = trangleColorInfoSelect;
+    }else if (self.state == CircleViewStateLastOneError){
+        _trangleColor = trangleColorNormal;
+    }else if (self.state == CircleViewStateLastOneSelected){
+        _trangleColor = trangleColorNormal;
+    }
+
+    return _trangleColor;
+}
+#pragma mark - setter && getter
+/**
+ *  重写angle的setter
+ */
+- (void)setAngle:(CGFloat)angle
+{
+    _angle = angle;
+  
+    [self setNeedsDisplay];
 }
 @end

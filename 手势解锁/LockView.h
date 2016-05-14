@@ -15,6 +15,7 @@
 @end
 
 @interface LockView : UIView
+
 /**
  *  selectedButtonArray
  */

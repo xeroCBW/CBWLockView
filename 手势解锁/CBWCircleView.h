@@ -14,6 +14,8 @@ typedef enum : NSUInteger {
     CircleViewStateError,
     CircleViewStateInfoNormal,
     CircleViewStateInfoSelected,
+    CircleViewStateLastOneError,
+    CircleViewStateLastOneSelected,
     
 } CircleViewState;
 
@@ -22,6 +24,12 @@ typedef enum : NSUInteger {
 
 /** 状态*/
 @property (nonatomic ,assign)  CircleViewState state;
+/**
+ *  是否有箭头 default is YES
+ */
+@property (nonatomic, assign) BOOL arrow;
 
+/** 角度 */
+@property (nonatomic,assign) CGFloat angle;
 
 @end
