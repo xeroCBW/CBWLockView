@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D01D7F6D1CE76FE2000A1307 /* LockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */; };
-		D01D7F701CE78B1F000A1307 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D7F6F1CE78B1F000A1307 /* TestView.m */; };
-		D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DC1CE41B3500932735 /* CBWCircleView.m */; };
-		D03D92E01CE4327900932735 /* LockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D03D92DF1CE4327900932735 /* LockConst.m */; };
+		D023D4E31D18E17600D5E16E /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D01D18E17600D5E16E /* CALayer+Anim.m */; };
+		D023D4E41D18E17600D5E16E /* NSObject+IsBlankString.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D21D18E17600D5E16E /* NSObject+IsBlankString.m */; };
+		D023D4E51D18E17600D5E16E /* SettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D51D18E17600D5E16E /* SettingKeyVC.m */; };
+		D023D4E61D18E17600D5E16E /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D71D18E17600D5E16E /* TestView.m */; };
+		D023D4E71D18E17600D5E16E /* VerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */; };
+		D023D4E81D18E17600D5E16E /* LockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DB1D18E17600D5E16E /* LockConst.m */; };
+		D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DE1D18E17600D5E16E /* CBWCircleView.m */; };
+		D023D4EA1D18E17600D5E16E /* LockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E01D18E17600D5E16E /* LockInfoView.m */; };
+		D023D4EB1D18E17600D5E16E /* LockView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E21D18E17600D5E16E /* LockView.m */; };
 		D07E736A1C8D4E4100ED5EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73691C8D4E4100ED5EAB /* main.m */; };
 		D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736C1C8D4E4100ED5EAB /* AppDelegate.m */; };
 		D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736F1C8D4E4100ED5EAB /* ViewController.m */; };
@@ -19,11 +24,6 @@
 		D07E73781C8D4E4100ED5EAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07E73761C8D4E4100ED5EAB /* LaunchScreen.storyboard */; };
 		D07E73831C8D4E4100ED5EAB /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73821C8D4E4100ED5EAB /* ____Tests.m */; };
 		D07E738E1C8D4E4100ED5EAB /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E738D1C8D4E4100ED5EAB /* ____UITests.m */; };
-		D07E73A01C8D4F3D00ED5EAB /* LockView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E739F1C8D4F3D00ED5EAB /* LockView.m */; };
-		D0B6BEBA1CE450D40096B778 /* SettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEB91CE450D40096B778 /* SettingKeyVC.m */; };
-		D0B6BEBD1CE450E80096B778 /* VerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */; };
-		D0B6BEC11CE477A20096B778 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */; };
-		D0B6BECE1CE486730096B778 /* NSObject+IsBlankString.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,14 +44,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D01D7F6B1CE76FE2000A1307 /* LockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockInfoView.h; sourceTree = "<group>"; };
-		D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockInfoView.m; sourceTree = "<group>"; };
-		D01D7F6E1CE78B1F000A1307 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
-		D01D7F6F1CE78B1F000A1307 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
-		D03D92DB1CE41B3500932735 /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
-		D03D92DC1CE41B3500932735 /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
-		D03D92DE1CE4327900932735 /* LockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockConst.h; sourceTree = "<group>"; };
-		D03D92DF1CE4327900932735 /* LockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockConst.m; sourceTree = "<group>"; };
+		D023D4CF1D18E17600D5E16E /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
+		D023D4D01D18E17600D5E16E /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		D023D4D11D18E17600D5E16E /* NSObject+IsBlankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsBlankString.h"; sourceTree = "<group>"; };
+		D023D4D21D18E17600D5E16E /* NSObject+IsBlankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsBlankString.m"; sourceTree = "<group>"; };
+		D023D4D41D18E17600D5E16E /* SettingKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingKeyVC.h; sourceTree = "<group>"; };
+		D023D4D51D18E17600D5E16E /* SettingKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingKeyVC.m; sourceTree = "<group>"; };
+		D023D4D61D18E17600D5E16E /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		D023D4D71D18E17600D5E16E /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		D023D4D81D18E17600D5E16E /* VerifyKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyKeyVC.h; sourceTree = "<group>"; };
+		D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyKeyVC.m; sourceTree = "<group>"; };
+		D023D4DA1D18E17600D5E16E /* LockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockConst.h; sourceTree = "<group>"; };
+		D023D4DB1D18E17600D5E16E /* LockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockConst.m; sourceTree = "<group>"; };
+		D023D4DD1D18E17600D5E16E /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
+		D023D4DE1D18E17600D5E16E /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
+		D023D4DF1D18E17600D5E16E /* LockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockInfoView.h; sourceTree = "<group>"; };
+		D023D4E01D18E17600D5E16E /* LockInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockInfoView.m; sourceTree = "<group>"; };
+		D023D4E11D18E17600D5E16E /* LockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockView.h; sourceTree = "<group>"; };
+		D023D4E21D18E17600D5E16E /* LockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockView.m; sourceTree = "<group>"; };
 		D07E73651C8D4E4100ED5EAB /* 手势解锁.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E73691C8D4E4100ED5EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D07E736B1C8D4E4100ED5EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,17 +78,7 @@
 		D07E73891C8D4E4100ED5EAB /* 手势解锁UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E738D1C8D4E4100ED5EAB /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		D07E738F1C8D4E4100ED5EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D07E739E1C8D4F3D00ED5EAB /* LockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockView.h; sourceTree = "<group>"; };
-		D07E739F1C8D4F3D00ED5EAB /* LockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockView.m; sourceTree = "<group>"; };
-		D0B6BEB81CE450D40096B778 /* SettingKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingKeyVC.h; sourceTree = "<group>"; };
-		D0B6BEB91CE450D40096B778 /* SettingKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingKeyVC.m; sourceTree = "<group>"; };
-		D0B6BEBB1CE450E80096B778 /* VerifyKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyKeyVC.h; sourceTree = "<group>"; };
-		D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyKeyVC.m; sourceTree = "<group>"; };
-		D0B6BEBF1CE477A20096B778 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
-		D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
 		D0B6BEC21CE483340096B778 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		D0B6BECC1CE486730096B778 /* NSObject+IsBlankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsBlankString.h"; sourceTree = "<group>"; };
-		D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsBlankString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +106,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D023D4CD1D18E17600D5E16E /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				D023D4CE1D18E17600D5E16E /* Category */,
+				D023D4D31D18E17600D5E16E /* Controllers */,
+				D023D4DA1D18E17600D5E16E /* LockConst.h */,
+				D023D4DB1D18E17600D5E16E /* LockConst.m */,
+				D023D4DC1D18E17600D5E16E /* View */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
+		D023D4CE1D18E17600D5E16E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D023D4CF1D18E17600D5E16E /* CALayer+Anim.h */,
+				D023D4D01D18E17600D5E16E /* CALayer+Anim.m */,
+				D023D4D11D18E17600D5E16E /* NSObject+IsBlankString.h */,
+				D023D4D21D18E17600D5E16E /* NSObject+IsBlankString.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D023D4D31D18E17600D5E16E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D023D4D41D18E17600D5E16E /* SettingKeyVC.h */,
+				D023D4D51D18E17600D5E16E /* SettingKeyVC.m */,
+				D023D4D61D18E17600D5E16E /* TestView.h */,
+				D023D4D71D18E17600D5E16E /* TestView.m */,
+				D023D4D81D18E17600D5E16E /* VerifyKeyVC.h */,
+				D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D023D4DC1D18E17600D5E16E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D023D4DD1D18E17600D5E16E /* CBWCircleView.h */,
+				D023D4DE1D18E17600D5E16E /* CBWCircleView.m */,
+				D023D4DF1D18E17600D5E16E /* LockInfoView.h */,
+				D023D4E01D18E17600D5E16E /* LockInfoView.m */,
+				D023D4E11D18E17600D5E16E /* LockView.h */,
+				D023D4E21D18E17600D5E16E /* LockView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D07E735C1C8D4E4100ED5EAB = {
 			isa = PBXGroup;
 			children = (
@@ -129,21 +178,12 @@
 		D07E73671C8D4E4100ED5EAB /* 手势解锁 */ = {
 			isa = PBXGroup;
 			children = (
-				D0B6BEBE1CE477960096B778 /* Category */,
-				D0B6BEB71CE450B00096B778 /* Controllers */,
+				D023D4CD1D18E17600D5E16E /* Gesture */,
 				D07E736B1C8D4E4100ED5EAB /* AppDelegate.h */,
 				D07E736C1C8D4E4100ED5EAB /* AppDelegate.m */,
 				D07E736E1C8D4E4100ED5EAB /* ViewController.h */,
 				D07E736F1C8D4E4100ED5EAB /* ViewController.m */,
 				D07E73711C8D4E4100ED5EAB /* Main.storyboard */,
-				D07E739E1C8D4F3D00ED5EAB /* LockView.h */,
-				D07E739F1C8D4F3D00ED5EAB /* LockView.m */,
-				D03D92DB1CE41B3500932735 /* CBWCircleView.h */,
-				D03D92DC1CE41B3500932735 /* CBWCircleView.m */,
-				D01D7F6B1CE76FE2000A1307 /* LockInfoView.h */,
-				D01D7F6C1CE76FE2000A1307 /* LockInfoView.m */,
-				D03D92DE1CE4327900932735 /* LockConst.h */,
-				D03D92DF1CE4327900932735 /* LockConst.m */,
 				D07E73741C8D4E4100ED5EAB /* Assets.xcassets */,
 				D07E73761C8D4E4100ED5EAB /* LaunchScreen.storyboard */,
 				D07E73791C8D4E4100ED5EAB /* Info.plist */,
@@ -177,30 +217,6 @@
 				D07E738F1C8D4E4100ED5EAB /* Info.plist */,
 			);
 			path = "手势解锁UITests";
-			sourceTree = "<group>";
-		};
-		D0B6BEB71CE450B00096B778 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D0B6BEB81CE450D40096B778 /* SettingKeyVC.h */,
-				D0B6BEB91CE450D40096B778 /* SettingKeyVC.m */,
-				D0B6BEBB1CE450E80096B778 /* VerifyKeyVC.h */,
-				D0B6BEBC1CE450E80096B778 /* VerifyKeyVC.m */,
-				D01D7F6E1CE78B1F000A1307 /* TestView.h */,
-				D01D7F6F1CE78B1F000A1307 /* TestView.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D0B6BEBE1CE477960096B778 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				D0B6BEBF1CE477A20096B778 /* CALayer+Anim.h */,
-				D0B6BEC01CE477A20096B778 /* CALayer+Anim.m */,
-				D0B6BECC1CE486730096B778 /* NSObject+IsBlankString.h */,
-				D0B6BECD1CE486730096B778 /* NSObject+IsBlankString.m */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,18 +352,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D03D92E01CE4327900932735 /* LockConst.m in Sources */,
+				D023D4E61D18E17600D5E16E /* TestView.m in Sources */,
+				D023D4E41D18E17600D5E16E /* NSObject+IsBlankString.m in Sources */,
+				D023D4EA1D18E17600D5E16E /* LockInfoView.m in Sources */,
 				D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */,
-				D01D7F6D1CE76FE2000A1307 /* LockInfoView.m in Sources */,
-				D07E73A01C8D4F3D00ED5EAB /* LockView.m in Sources */,
-				D01D7F701CE78B1F000A1307 /* TestView.m in Sources */,
-				D03D92DD1CE41B3500932735 /* CBWCircleView.m in Sources */,
-				D0B6BEBA1CE450D40096B778 /* SettingKeyVC.m in Sources */,
 				D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */,
-				D0B6BEC11CE477A20096B778 /* CALayer+Anim.m in Sources */,
-				D0B6BECE1CE486730096B778 /* NSObject+IsBlankString.m in Sources */,
+				D023D4E31D18E17600D5E16E /* CALayer+Anim.m in Sources */,
 				D07E736A1C8D4E4100ED5EAB /* main.m in Sources */,
-				D0B6BEBD1CE450E80096B778 /* VerifyKeyVC.m in Sources */,
+				D023D4E81D18E17600D5E16E /* LockConst.m in Sources */,
+				D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */,
+				D023D4EB1D18E17600D5E16E /* LockView.m in Sources */,
+				D023D4E51D18E17600D5E16E /* SettingKeyVC.m in Sources */,
+				D023D4E71D18E17600D5E16E /* VerifyKeyVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

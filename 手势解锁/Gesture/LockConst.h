@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-static NSString *lengthTips = @"长度必须大于4";
-static NSString *firstTips = @"请再次输入密码";
+static NSString *inputTips = @"请绘制解锁图案";
+static NSString *lengthTips = @"最少连接4个点，请重新绘制";
+static NSString *firstTips = @"再次绘制解锁图案";
 static NSString *setKeyerrorTips = @"与上次绘制不一致,请重新设置";
-static NSString *verifyKeyTips = @"密码错误,请重新输入";
+//static NSString *verifyKeyTips = @"密码绘制错误！还可以绘制2次";
+
 static NSString *gestureKey = @"gestureKey";
 static const float circleViewWH = 60;
 static const float circleInfoRadius = 5;
@@ -23,14 +25,14 @@ static const float innerCircleRadius = 10;//infoView 的内圈比外圈大,就�
 static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
 
 static const float lineWidth = 1.0f;
-/**
- *  三角形边长
- */
+static const int   errorCount = 5;//验证密码可以错误的次数
+/**三角形边长*/
 #define kTrangleLength 10.0f
+
+#define lockViewBackgroupColor [UIColor lightGrayColor]//[UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:246.0/255.0 alpha:1.0]
 
 #define mainScreenW [UIScreen mainScreen].bounds.size.width
 #define circleViewBackgroupColor [UIColor clearColor]
-
 
 #define outerCircleColorNormal [UIColor whiteColor]
 #define outerCircleColorSelected [UIColor yellowColor]
@@ -59,4 +61,5 @@ static const float lineWidth = 1.0f;
 //获取密码
 + (NSString *)getGestureWithKey:(NSString *)key;
 
++ (void)deleteGestureWithKey:(NSString *)key;
 @end

@@ -31,19 +31,13 @@
     self.title = @"设置密码";
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"pay_btn_close"] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+    self.navigationItem.rightBarButtonItem = right;
+    
     LockView *lockView = [[LockView alloc]init];
     lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, 200, 300, 300);
-    lockView.backgroundColor = [UIColor lightGrayColor];
- 
+    lockView.backgroundColor = lockViewBackgroupColor;
     lockView.delegate = self;
-    
-//   __weak typeof(self) weakSelf = self;
-//    lockView.lockViewHandle = ^(NSString *str,LockView *lockView){
-//        NSLog(@"选中的button编号为:%@",str);
-//        [weakSelf handleWithStr:str lockView:lockView];
-//        
-//    };
-    
     [self.view addSubview:lockView];
     
     UILabel *label = [[UILabel alloc]init];
@@ -53,19 +47,17 @@
     [self.view addSubview:label];
     
     self.tipsLabel = label;
-    
+    self.tipsLabel.text = inputTips;
     
     LockInfoView *infoView = [[LockInfoView alloc]init];
     infoView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 50)/2.0, CGRectGetMinY(label.frame) - 60, 50,50);
     self.infoView = infoView;
     
     [self.view addSubview:infoView];
-    
-
 
 }
 -(void)dealloc{
-    NSLog(@"%s",__func__);
+//    NSLog(@"%s",__func__);
 }
 
 #pragma mark -  delegate
@@ -85,13 +77,12 @@
       __weak typeof(self) weakSelf = self;
     
     //由于中间加了",",所以长度要 X2
-    if (str.length < 9) {
+    NSLog(@"%@",str);
+    
+    if (str.length < 7) {
         
         weakSelf.tipsLabel.text = lengthTips;
         [weakSelf.tipsLabel.layer shake];
-//        for (CBWCircleView *circleView in lockView.selectedButtonArray) {
-//            circleView.state = CircleViewStateError;
-//        }
         
         for (int i = 0;i < lockView.selectedButtonArray.count ; i ++) {
             CBWCircleView *circleView = lockView.selectedButtonArray[i];
@@ -134,7 +125,8 @@
             //将密码保存到本地
             [LockConst saveGesture:str Key:gestureKey];
             //就返回
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
         }else{
             //不返回,需要提示
             NSLog(@"两次不统一,需要重新设置");
@@ -160,6 +152,12 @@
         
     }
     
+}
+
+
+- (void)dismiss{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

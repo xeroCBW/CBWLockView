@@ -32,7 +32,9 @@
     
     SettingKeyVC *settingVC = [[SettingKeyVC alloc]init];
     
-    [self.navigationController pushViewController:settingVC animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:settingVC];
+    
+    [self presentViewController:navi animated:YES completion:nil];
 
     
 }
@@ -42,8 +44,8 @@
     
     
     VerifyKeyVC *verifyVC = [[VerifyKeyVC alloc]init];
-    
-    [self.navigationController pushViewController:verifyVC animated:YES];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:verifyVC];
+    [self presentViewController:nav animated:YES completion:nil];
 
 }
 

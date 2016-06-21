@@ -10,7 +10,8 @@
 #import "CBWCircleView.h"
 
 @interface LockView ()
-
+// 当前点
+@property (nonatomic, assign) CGPoint currentPoint;
 @end
 
 @implementation LockView
@@ -111,6 +112,7 @@
     UITouch *touch = [touches anyObject];
     //2.转换点的位置
     CGPoint point = [touch locationInView:self];
+    self.currentPoint = point;
     //3.判断button是否存在
     CBWCircleView *circleView = [self buttonContainPoint:point];
     //将状态设置为移动
@@ -147,7 +149,9 @@
         circleView.state = CircleViewStateNormal;
     }
     
- 
+    if ([self isBlankString:str]) {
+        return;
+    }
     
     if ([_delegate respondsToSelector:@selector(lockView:setKeyActionEndStr:)]) {
         
@@ -248,6 +252,10 @@
         }
     }
     
+    
+    //设置连线,不在点的连线
+    [path addLineToPoint:self.currentPoint];
+    
     [color set];
     
     //设置线宽
@@ -255,7 +263,7 @@
     //设置线的连接样式
     [path setLineJoinStyle:kCGLineJoinRound];
     //设置连线的透明度
-    [path strokeWithBlendMode:kCGBlendModeColor alpha:0.3];
+    [path strokeWithBlendMode:kCGBlendModeColor alpha:1.0];
     //绘制路径.
     [path stroke];
 }

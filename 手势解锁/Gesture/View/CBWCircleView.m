@@ -55,7 +55,7 @@
     //他们自己带有颜色的
     UIColor *color = self.isNormalStateMove?[UIColor lightGrayColor]:[UIColor clearColor];
     
-    NSLog(@"%zd====%zd=====%@",self.tag,self.isNormalStateMove,color);
+//    NSLog(@"%zd====%zd=====%@",self.tag,self.isNormalStateMove,color);
     
     [self drawCircleWithContext:ctx radius:(rect.size.width - outerCircleWidth)/ 2.0 lineWidth:(rect.size.width - outerCircleWidth)/ 2.0 rect:rect color:color];
     //画内圆

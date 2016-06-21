@@ -22,6 +22,9 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
-
++ (void)deleteGestureWithKey:(NSString *)key{
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+}
 
 @end
