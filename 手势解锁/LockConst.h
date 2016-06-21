@@ -18,7 +18,7 @@ static const float circleViewWH = 60;
 static const float circleInfoRadius = 5;
 static const float errorDisplayTime = 0.6f;
 
-static const float outerCircleWidth = 1;
+static const float outerCircleWidth = 2;
 static const float innerCircleRadius = 10;//infoView 的内圈比外圈大,就不会显示出来了
 static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
 
@@ -43,8 +43,8 @@ static const float lineWidth = 1.0f;
 #define innnerCircleColorSelected [UIColor yellowColor]
 #define innnerCircleColorError [UIColor redColor]
 
-#define innerCircleColorInfoNormal [UIColor greenColor]
-#define innerCircleColorInfoSelect [UIColor yellowColor]
+#define innerCircleColorInfoNormal [UIColor clearColor]
+#define innerCircleColorInfoSelect [UIColor greenColor]
 
 #define trangleColorNormal [UIColor clearColor]
 #define trangleColorSelected [UIColor yellowColor]

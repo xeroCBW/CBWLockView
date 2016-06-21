@@ -113,6 +113,8 @@
     CGPoint point = [touch locationInView:self];
     //3.判断button是否存在
     CBWCircleView *circleView = [self buttonContainPoint:point];
+    //将状态设置为移动
+    circleView.normalStateMove = YES;
     
     if (circleView != nil && circleView.state != CircleViewStateSeleted && circleView.state != CircleViewStateLastOneSelected) {
         
@@ -207,6 +209,7 @@
     //清空所有的选中按钮--重绘
     [self.selectedButtonArray removeAllObjects];
     [self resetAllCirclesDirect];
+    [self resetNormalStateMove];
     
     [self setNeedsDisplay];
 }
@@ -327,6 +330,12 @@
     return centerCircle; // 注意：可能返回的是nil，就是当前点不在圆内
 }
 
+
+- (void)resetNormalStateMove{
+    for (CBWCircleView *view in self.subviews) {
+        view.normalStateMove = NO;
+    }
+}
 - (void)resetAllCirclesDirect
 {
     [self.subviews enumerateObjectsUsingBlock:^(CBWCircleView *obj, NSUInteger idx, BOOL *stop) {

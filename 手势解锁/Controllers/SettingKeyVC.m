@@ -32,7 +32,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     LockView *lockView = [[LockView alloc]init];
-    lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 200)/2.0, 200, 200, 200);
+    lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, 200, 300, 300);
     lockView.backgroundColor = [UIColor lightGrayColor];
  
     lockView.delegate = self;

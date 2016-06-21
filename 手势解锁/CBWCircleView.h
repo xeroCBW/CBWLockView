@@ -33,4 +33,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,assign) CGFloat angle;
 /** infoView 还是普通的 View*/
 @property (nonatomic ,assign,) BOOL normalViewType;
+/** 手指是否已经移动过*/
+@property (nonatomic ,assign,getter=isNormalStateMove) BOOL normalStateMove;
+
 @end

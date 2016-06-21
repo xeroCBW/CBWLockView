@@ -270,7 +270,7 @@
 				TargetAttributes = {
 					D07E73641C8D4E4100ED5EAB = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 39CU25G7Z2;
+						DevelopmentTeam = Y6E87B57HA;
 					};
 					D07E737D1C8D4E4100ED5EAB = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -494,7 +494,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/手势解锁/Header.h";
 				INFOPLIST_FILE = "手势解锁/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.cbwwb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.lockView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -510,7 +510,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/手势解锁/Header.h";
 				INFOPLIST_FILE = "手势解锁/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.cbwwb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cbw.lockView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

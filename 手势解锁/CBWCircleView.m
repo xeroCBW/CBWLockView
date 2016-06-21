@@ -50,11 +50,22 @@
    
     //画外圆
     [self drawCircleWithContext:ctx radius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
+    //避免看到连线
+    
+    //他们自己带有颜色的
+    UIColor *color = self.isNormalStateMove?[UIColor lightGrayColor]:[UIColor clearColor];
+    
+    NSLog(@"%zd====%zd=====%@",self.tag,self.isNormalStateMove,color);
+    
+    [self drawCircleWithContext:ctx radius:(rect.size.width - outerCircleWidth)/ 2.0 lineWidth:(rect.size.width - outerCircleWidth)/ 2.0 rect:rect color:color];
     //画内圆
     
     if (self.normalViewType == YES) {
         
         [self drawCircleWithContext:ctx radius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
+        
+    }else{
+        [self drawCircleWithContext:ctx radius:circleInfoRadius - 1 lineWidth:circleInfoRadius - 1 rect:rect color:self.innerCirCleColor];
     }
 
     //画内圆的 border
@@ -83,8 +94,6 @@
     // 3.渲染 (注意, 画线只能通过空心来画)
     //    CGContextFillPath(ctx);
     CGContextStrokePath(ctx);
-
-    
 }
 #pragma mark - 画三角形
 /**

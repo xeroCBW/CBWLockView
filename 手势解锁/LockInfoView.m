@@ -9,12 +9,18 @@
 #import "LockInfoView.h"
 #import "CBWCircleView.h"
 
+@interface LockInfoView ()
+/** j*/
+@property (nonatomic ,assign) NSInteger j;
+@end
+
 @implementation LockInfoView
 - (instancetype)init
 {
     if (self = [super init]) {
         // 解锁视图准备
         [self lockViewPrepare];
+        _j = 0;
     }
     return self;
 }
@@ -89,7 +95,7 @@
             NSInteger index = [str integerValue];
             if (index == circle.tag) {
                 circle.state = CircleViewStateInfoSelected;
-
+               
             }
         }
 
@@ -102,9 +108,60 @@
 
 -(void)drawRect:(CGRect)rect{
     
-    [super drawRect:rect];
+
+    UIColor *color;
+   
+        color = [UIColor yellowColor];
     
-//    NSLog(@"-----");
+    //创建路径.
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    //取出所有保存的选中按钮连线.
+
+    
+            
+            for (NSString *str in self.selectedButtonsArray) {
+                NSInteger index = [str integerValue];
+                for (CBWCircleView *circle in self.subviews) {
+
+                if (index == circle.tag) {
+                    circle.state = CircleViewStateInfoSelected;
+                    
+                    if(_j == 0){
+                        //设置起点.
+                        [path moveToPoint:circle.center];
+                    }else{
+                        //添加一根线到当前按钮的圆心.
+                        [path addLineToPoint:circle.center];
+                    }
+                    ++_j;
+                }
+        
+                }
+        
+        
+//        UIView *circleView = self.selectedButtonArray[i];
+//        //判断当前按钮是不是第一个,如果是第一个,把它的中心设置为路径的起点.
+//        if(i == 0){
+//            //设置起点.
+//            [path moveToPoint:circleView.center];
+//        }else{
+//            //添加一根线到当前按钮的圆心.
+//            [path addLineToPoint:circleView.center];
+//        }
+
+    
+    [color set];
+    
+    //设置线宽
+    [path setLineWidth:lineWidth];
+    //设置线的连接样式
+    [path setLineJoinStyle:kCGLineJoinRound];
+    //设置连线的透明度
+    [path strokeWithBlendMode:kCGBlendModeColor alpha:0.3];
+    //绘制路径.
+    [path stroke];
 }
+}
+
 
 @end
