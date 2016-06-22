@@ -27,7 +27,7 @@
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    
+
     self.title = @"设置密码";
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -46,20 +46,17 @@
     label.backgroundColor = [UIColor lightGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
-    
+    label.text = inputTips;
     self.tipsLabel = label;
-    self.tipsLabel.text = inputTips;
     
     LockInfoView *infoView = [[LockInfoView alloc]init];
     infoView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 50)/2.0, CGRectGetMinY(label.frame) - 60, 50,50);
-    self.infoView = infoView;
-    
     [self.view addSubview:infoView];
+    self.infoView = infoView;
+   
 
 }
--(void)dealloc{
-//    NSLog(@"%s",__func__);
-}
+
 
 #pragma mark -  delegate
 
@@ -69,8 +66,6 @@
     [self handleWithStr:str lockView:lockView];
     
 }
-
-
 
 #pragma mark - private
 - (void)handleWithStr:(NSString *)str lockView:(LockView *)lockView{
@@ -95,8 +90,6 @@
         }
 
         [lockView  setNeedsDisplay];
-        
-        
         return;
 
     }
@@ -104,22 +97,19 @@
     
     //第一次进来直接保存
     if (weakSelf.keyStr == nil) {
-         weakSelf.keyStr = str;
+        weakSelf.keyStr = str;
         weakSelf.tipsLabel.text = firstTips;
         
         // infoView选中状态下按钮
-       
         NSMutableArray *array = [NSMutableArray array];
         for (CBWCircleView *circleView in lockView.selectedButtonArray) {
             
-            NSString *buttonIndex = [NSString stringWithFormat:@"%ld",circleView.tag];
+            NSString *buttonIndex = [NSString stringWithFormat:@"%zd",circleView.tag];
             
             [array addObject:buttonIndex];
             
         }
          weakSelf.infoView.selectedButtonsArray = array;
-
-        
         
     }else{
         //后面进来
@@ -135,10 +125,6 @@
             NSLog(@"两次不统一,需要重新设置");
              weakSelf.tipsLabel.text = setKeyerrorTips;
             [weakSelf.tipsLabel.layer shake];
-            //将选中状态变成错误,动画延迟一会
-//            for (CBWCircleView *circleView in lockView.selectedButtonArray) {
-//                circleView.state = CircleViewStateError;
-//            }
             
             for (int i = 0;i < lockView.selectedButtonArray.count ; i ++) {
                 CBWCircleView *circleView = lockView.selectedButtonArray[i];
@@ -151,7 +137,6 @@
             
             [lockView  setNeedsDisplay];
         }
-        
         
     }
     

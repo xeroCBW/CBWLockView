@@ -13,6 +13,9 @@
 /** 外圈圆颜色*/
 @property (nonatomic , strong) UIColor *outerCircleColor;
 
+/** 内圈border圆颜色*/
+@property (nonatomic ,strong) UIColor *borderCirCleColor;
+
 /** 内圈圆颜色*/
 @property (nonatomic ,strong) UIColor *innerCirCleColor;
 /**
@@ -29,7 +32,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         self.state = CircleViewStateNormal;
-//        self.arrow = YES;
+//        self.arrow = YES;//在这里也可以设置箭头
     }
     return self;
 }
@@ -47,41 +50,34 @@
     
   CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-   
-    //画外圆
-    [self drawCircleWithContext:ctx radius:0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
-    //避免看到连线
-    
-    //他们自己带有颜色的
-    UIColor *color ;//= self.isNormalStateMove?circleViewBackgroupColorSelected:[UIColor clearColor];
+
+    UIColor *color ;
     NSLog(@"CircleViewStateError=%zd",self.state);
 
-    if (self.isNormalStateMove) {
-        
+    //没有在选中之前,就没有颜色
+    if (!self.isNormalStateMove) {color = [UIColor clearColor];}
+    
         if (self.state == CircleViewStateSeleted ||self.state == CircleViewStateLastOneSelected) {
             color = circleViewBackgroupColorSelected;
         }else if(self.state == CircleViewStateError ||self.state == CircleViewStateLastOneError){
             color = circleViewBackgroupColorSelectedError;
         }
+    
+    //整个背景颜色
+    [self drawCircleWithContext:ctx radius:rect.size.width/ 2.0 lineWidth:rect.size.width/ 2.0 rect:rect color:color];
+    
+    //画外圆
+    #warning 设置外边框圆的半径--线宽
+    [self drawCircleWithContext:ctx radius:rect.size.width/2.0 lineWidth:outerCircleWidth rect:rect color:self.outerCircleColor];
+    
+    //画内圆的 border
+    if (self.normalViewType == YES) {
         
-    }else{
-        color = [UIColor clearColor];
+        [self drawCircleWithContext:ctx radius:borderCircleRadius lineWidth:borderCircleWith rect:rect color:self.borderCirCleColor];
         
-        if (self.state == CircleViewStateSeleted ||self.state == CircleViewStateLastOneSelected) {
-            color = circleViewBackgroupColorSelected;
-        }else if(self.state == CircleViewStateError ||self.state == CircleViewStateLastOneError){
-            color = circleViewBackgroupColorSelectedError;
-        }
     }
     
-    
-    
-    [self drawCircleWithContext:ctx radius:(rect.size.width - outerCircleWidth)/ 2.0 lineWidth:(rect.size.width - outerCircleWidth)/ 2.0 rect:rect color:color];
-    
-    
-    
     //画内圆
-    
     if (self.normalViewType == YES) {
         
         [self drawCircleWithContext:ctx radius:innerCircleRadius lineWidth:innerCircleWidth rect:rect color:self.innerCirCleColor];
@@ -90,9 +86,7 @@
         [self drawCircleWithContext:ctx radius:circleInfoRadius - 1 lineWidth:circleInfoRadius - 1 rect:rect color:self.innerCirCleColor];
     }
 
-    //画内圆的 border
 
-    
     //画三角形状
     if (self.arrow) {
          [self transFormCtx:ctx rect:rect];
@@ -103,10 +97,10 @@
 }
 
 - (void)drawCircleWithContext:(CGContextRef)ctx radius:(float )radius lineWidth:(float )lineWidth rect:(CGRect )rect color:(UIColor *)color{
-#warning 是否要释放 release 上下文
+//#warning 是否要释放 release 上下文
     // 画圆--默认是方形的,
     radius = radius ? radius:rect.size.width / 2.0;
-    lineWidth = lineWidth ? lineWidth : 3.0;
+    lineWidth = lineWidth ? lineWidth : 2.0;
     
     CGContextAddArc(ctx, rect.size.width / 2.0, rect.size.height / 2.0, radius - lineWidth / 2.0, 0, 2 * M_PI, 0);
     //设置颜色
@@ -185,6 +179,27 @@
     }
     return _outerCircleColor;
 }
+
+- (UIColor *)borderCirCleColor{
+    if (self.state == CircleViewStateNormal) {
+        _borderCirCleColor = borderCircleColorNormal;
+    }else if (self.state == CircleViewStateSeleted){
+        _borderCirCleColor = borderCircleColorSelected;
+    }else if (self.state == CircleViewStateError){
+        _borderCirCleColor = borderCircleColorError;
+    }else if (self.state == CircleViewStateInfoNormal){
+        _borderCirCleColor = innerCircleColorInfoNormal;
+    }else if (self.state == CircleViewStateInfoSelected){
+        _borderCirCleColor = innerCircleColorInfoSelect;
+    }else if (self.state == CircleViewStateLastOneError){
+        _borderCirCleColor = borderCircleColorError;
+    }else if (self.state == CircleViewStateLastOneSelected){
+        _borderCirCleColor = borderCircleColorSelected;
+    }
+    
+    return _borderCirCleColor;
+}
+
 -(UIColor *)innerCirCleColor{
     
     if (self.state == CircleViewStateNormal) {

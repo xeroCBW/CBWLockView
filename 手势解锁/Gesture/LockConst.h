@@ -16,15 +16,18 @@ static NSString *setKeyerrorTips = @"与上次绘制不一致,请重新设置";
 //static NSString *verifyKeyTips = @"密码绘制错误！还可以绘制2次";
 
 static NSString *gestureKey = @"gestureKey";
-static const float circleViewWH = 60;
+static const float circleViewWH = 70;//外圆大小
 static const float circleInfoRadius = 5;
 static const float errorDisplayTime = 0.6f;
 
-static const float outerCircleWidth = 2;
-static const float innerCircleRadius = 10;//infoView 的内圈比外圈大,就不会显示出来了
-static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
+static const float outerCircleWidth = 1;//外圆线宽
+static const float innerCircleRadius = 32/2.0;//infoView 的内圈比外圈大,就不会显示出来了
+static const float innerCircleWidth = 32/2.0;//设置宽度等于半径,就会等于实心圆
 
-static const float lineWidth = 4.0f;
+static const float borderCircleWith = 13/2.0;
+static const float borderCircleRadius = innerCircleRadius + borderCircleWith;
+
+static const float lineWidth = 1.0f;//线宽
 static const int   errorCount = 5;//验证密码可以错误的次数
 /**三角形边长*/
 #define kTrangleLength 10.0f
@@ -38,19 +41,24 @@ static const int   errorCount = 5;//验证密码可以错误的次数
 #define circleViewBackgroupColorSelected [UIColor colorWithRed:225.0/255.0 green:241.0/255.0 blue:254.0/255.0 alpha:1.0]
 #define circleViewBackgroupColorSelectedError [UIColor colorWithRed:1.0 green:0.0 blue:0.5 alpha:0.2];
 
-#define outerCircleColorNormal [UIColor whiteColor]
+#define outerCircleColorNormal [UIColor lightGrayColor]
 #define outerCircleColorSelected lockViewLineColorNormal
 #define outerCircleColorError [UIColor redColor]
 
 #define outerCircleColorInfoNormal [UIColor whiteColor]
-#define outerCircleColorInfoSelect [UIColor redColor]
+#define outerCircleColorInfoSelect lockViewLineColorNormal
 
 #define innnerCircleColorNormal [UIColor clearColor]
 #define innnerCircleColorSelected lockViewLineColorNormal
 #define innnerCircleColorError [UIColor redColor]
 
+#define borderCircleColorNormal [UIColor clearColor]
+#define borderCircleColorSelected [UIColor colorWithRed:112.0/255.0 green:182.0/255.0 blue:255.0/255.0 alpha:0.5]
+#define borderCircleColorError [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.2]
+
+
 #define innerCircleColorInfoNormal [UIColor clearColor]
-#define innerCircleColorInfoSelect [UIColor greenColor]
+#define innerCircleColorInfoSelect [UIColor clearColor]
 
 #define trangleColorNormal [UIColor clearColor]
 #define trangleColorSelected lockViewLineColorNormal
