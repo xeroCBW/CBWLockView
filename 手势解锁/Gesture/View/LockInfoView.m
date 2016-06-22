@@ -45,7 +45,7 @@
  */
 -(void)lockViewPrepare{
     
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = lockViewBackgroupColor;
     
     for (NSUInteger i=0; i<9; i++) {
         
@@ -53,7 +53,7 @@
         circle.state = CircleViewStateInfoNormal;
         circle.normalViewType = NO;
         circle.tag = i;
-        
+     
         [self addSubview:circle];
     }
 }
@@ -76,10 +76,12 @@
         CGFloat y = marginValue * col + col * itemViewWH + marginValue/2;
         
         CGRect frame = CGRectMake(x, y, itemViewWH, itemViewWH);
-        
-
-        
+    
         subview.frame = frame;
+        
+        subview.layer.cornerRadius = itemViewWH * 0.5;
+        
+        subview.layer.masksToBounds = YES;
     }];
 }
 
@@ -111,7 +113,7 @@
 
     UIColor *color;
    
-        color = [UIColor yellowColor];
+        color = [UIColor blueColor];
     
     //创建路径.
     UIBezierPath *path = [UIBezierPath bezierPath];

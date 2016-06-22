@@ -27,6 +27,9 @@
 
 /** 选中9宫格字符串*/
 @property (nonatomic ,strong) void (^lockViewHandle)(NSString *str,LockView *lockView) ;
+
+/** 那个选中*/
+@property (nonatomic ,assign) NSInteger index;
 /** 使用代理实现*/
 @property (nonatomic ,weak) id<LockViewDelegate>delegate;
 

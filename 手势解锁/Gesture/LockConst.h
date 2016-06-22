@@ -24,32 +24,36 @@ static const float outerCircleWidth = 2;
 static const float innerCircleRadius = 10;//infoView 的内圈比外圈大,就不会显示出来了
 static const float innerCircleWidth = 10;//设置宽度等于半径,就会等于实心圆
 
-static const float lineWidth = 1.0f;
+static const float lineWidth = 4.0f;
 static const int   errorCount = 5;//验证密码可以错误的次数
 /**三角形边长*/
 #define kTrangleLength 10.0f
 
-#define lockViewBackgroupColor [UIColor lightGrayColor]//[UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:246.0/255.0 alpha:1.0]
+#define lockViewBackgroupColor [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:246.0/255.0 alpha:1.0]
+#define lockViewLineColorNormal [UIColor colorWithRed:112.0/255.0 green:182.0/255.0 blue:255.0/255.0 alpha:1.0]
+#define lockViewLineColorError [UIColor redColor]
 
 #define mainScreenW [UIScreen mainScreen].bounds.size.width
-#define circleViewBackgroupColor [UIColor clearColor]
+//225 241 254
+#define circleViewBackgroupColorSelected [UIColor colorWithRed:225.0/255.0 green:241.0/255.0 blue:254.0/255.0 alpha:1.0]
+#define circleViewBackgroupColorSelectedError [UIColor colorWithRed:1.0 green:0.0 blue:0.5 alpha:0.2];
 
 #define outerCircleColorNormal [UIColor whiteColor]
-#define outerCircleColorSelected [UIColor yellowColor]
+#define outerCircleColorSelected lockViewLineColorNormal
 #define outerCircleColorError [UIColor redColor]
 
 #define outerCircleColorInfoNormal [UIColor whiteColor]
 #define outerCircleColorInfoSelect [UIColor redColor]
 
 #define innnerCircleColorNormal [UIColor clearColor]
-#define innnerCircleColorSelected [UIColor yellowColor]
+#define innnerCircleColorSelected lockViewLineColorNormal
 #define innnerCircleColorError [UIColor redColor]
 
 #define innerCircleColorInfoNormal [UIColor clearColor]
 #define innerCircleColorInfoSelect [UIColor greenColor]
 
 #define trangleColorNormal [UIColor clearColor]
-#define trangleColorSelected [UIColor yellowColor]
+#define trangleColorSelected lockViewLineColorNormal
 #define trangleColorError [UIColor redColor]
 
 #define trangleColorInfoNormal trangleColorNormal

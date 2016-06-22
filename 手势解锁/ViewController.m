@@ -16,6 +16,7 @@
 #define ScreenHW [UIScreen mainScreen].bounds.size.width
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @end
 
@@ -24,14 +25,14 @@
 - (void)viewDidLoad{
     
     [LockConst saveGesture:nil Key:gestureKey];
-    
+    self.segment.selectedSegmentIndex = 0;
 }
 
 
 - (IBAction)settingKeyAction:(id)sender {
     
     SettingKeyVC *settingVC = [[SettingKeyVC alloc]init];
-    
+    settingVC.index = self.segment.selectedSegmentIndex;
     UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:settingVC];
     
     [self presentViewController:navi animated:YES completion:nil];
@@ -44,6 +45,7 @@
     
     
     VerifyKeyVC *verifyVC = [[VerifyKeyVC alloc]init];
+    verifyVC.index = self.segment.selectedSegmentIndex;
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:verifyVC];
     [self presentViewController:nav animated:YES completion:nil];
 
@@ -55,6 +57,13 @@
     
     [self.navigationController pushViewController:test animated:YES];
     
+}
+
+
+- (IBAction)segment:(UISegmentedControl *)sender {
+    
+    
+    NSLog(@"===%zd",sender.selectedSegmentIndex);
 }
 
 @end

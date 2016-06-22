@@ -38,6 +38,7 @@
     lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, 200, 300, 300);
     lockView.backgroundColor = lockViewBackgroupColor;
     lockView.delegate = self;
+    lockView.index = self.index;
     [self.view addSubview:lockView];
     
     UILabel *label = [[UILabel alloc]init];
@@ -94,6 +95,8 @@
         }
 
         [lockView  setNeedsDisplay];
+        
+        
         return;
 
     }

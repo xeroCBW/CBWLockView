@@ -24,8 +24,7 @@
     [super viewDidLoad];
     self.title = @"验证密码";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    
+
     //原理上不能设置退出,要么忘记密码
 
     
@@ -39,6 +38,7 @@
     lockView.backgroundColor = lockViewBackgroupColor;
     lockView.center = self.view.center;
     lockView.delegate = self;
+    lockView.index = self.index;
     [self.view addSubview:lockView];
     
     UILabel *label = [[UILabel alloc]init];

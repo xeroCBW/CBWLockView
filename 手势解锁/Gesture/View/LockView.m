@@ -32,9 +32,12 @@
     if (self = [super init]) {
         
         [self setUpButton];
+        
     }
     return self;
 }
+
+
 
 
 -(void)dealloc{
@@ -51,6 +54,7 @@
     for (int i = 0; i < count ; i++) {
         
          CBWCircleView *circleView = [[CBWCircleView alloc]init];
+    
         circleView.normalViewType = YES;
         [self addSubview:circleView];
         circleView.tag = i;
@@ -81,6 +85,13 @@
         CGRect frame = CGRectMake(x, y, itemViewWH, itemViewWH);
         
         subview.frame = frame;
+        
+        subview.layer.cornerRadius = itemViewWH * 0.5;
+        
+        subview.layer.masksToBounds = YES;
+        
+        CBWCircleView *circle = (CBWCircleView *)subview;
+        circle.arrow = self.index == 0 ? YES :NO;
     }];
     
 }
@@ -93,6 +104,7 @@
     UITouch *touch = [touches anyObject];
     //2.转换点的位置
     CGPoint point = [touch locationInView:self];
+    self.currentPoint = point;
     //3.判断button是否存在
     CBWCircleView *view = [self buttonContainPoint:point];
     //如果button存在就放在数组中保存
@@ -179,6 +191,8 @@
     
     //是否错误,在这里暂停几秒
     if ([self getCircleState] == CircleViewStateError ||[self getCircleState] == CircleViewStateLastOneError) {
+        
+        self.userInteractionEnabled = NO;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(errorDisplayTime* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             for (CBWCircleView *circleView in self.selectedButtonArray) {
@@ -186,6 +200,7 @@
             }
             
             [self resetView];
+            self.userInteractionEnabled = YES;
             
         });
     }else{
@@ -231,9 +246,9 @@
 //    NSLog(@"连线颜色%zd",state);
     UIColor *color;
     if (state == CircleViewStateError ||[self getCircleState] == CircleViewStateLastOneError) {
-        color = [UIColor redColor];
+        color = lockViewLineColorError;
     }else{
-        color = [UIColor yellowColor];
+        color = lockViewLineColorNormal;
     }
 
     
@@ -254,7 +269,15 @@
     
     
     //设置连线,不在点的连线
-    [path addLineToPoint:self.currentPoint];
+    if (self.selectedButtonArray.count >= 1) {
+        if (state == CircleViewStateError || state == CircleViewStateLastOneError) {
+            
+        }else{
+            [path addLineToPoint:self.currentPoint];
+        }
+        
+    }
+   
     
     [color set];
     

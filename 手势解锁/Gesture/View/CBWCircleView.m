@@ -27,9 +27,9 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = circleViewBackgroupColor;
+        self.backgroundColor = [UIColor whiteColor];
         self.state = CircleViewStateNormal;
-        self.arrow = YES;
+//        self.arrow = YES;
     }
     return self;
 }
@@ -53,11 +53,33 @@
     //避免看到连线
     
     //他们自己带有颜色的
-    UIColor *color = self.isNormalStateMove?[UIColor lightGrayColor]:[UIColor clearColor];
+    UIColor *color ;//= self.isNormalStateMove?circleViewBackgroupColorSelected:[UIColor clearColor];
+    NSLog(@"CircleViewStateError=%zd",self.state);
+
+    if (self.isNormalStateMove) {
+        
+        if (self.state == CircleViewStateSeleted ||self.state == CircleViewStateLastOneSelected) {
+            color = circleViewBackgroupColorSelected;
+        }else if(self.state == CircleViewStateError ||self.state == CircleViewStateLastOneError){
+            color = circleViewBackgroupColorSelectedError;
+        }
+        
+    }else{
+        color = [UIColor clearColor];
+        
+        if (self.state == CircleViewStateSeleted ||self.state == CircleViewStateLastOneSelected) {
+            color = circleViewBackgroupColorSelected;
+        }else if(self.state == CircleViewStateError ||self.state == CircleViewStateLastOneError){
+            color = circleViewBackgroupColorSelectedError;
+        }
+    }
     
-//    NSLog(@"%zd====%zd=====%@",self.tag,self.isNormalStateMove,color);
+    
     
     [self drawCircleWithContext:ctx radius:(rect.size.width - outerCircleWidth)/ 2.0 lineWidth:(rect.size.width - outerCircleWidth)/ 2.0 rect:rect color:color];
+    
+    
+    
     //画内圆
     
     if (self.normalViewType == YES) {

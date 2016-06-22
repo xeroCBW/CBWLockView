@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VerifyKeyVC : UIViewController
-
+/** index*/
+@property (nonatomic ,assign) NSInteger index;
 @end

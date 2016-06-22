@@ -34,7 +34,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     
-    NSLog(@"%@,%@",[UIColor lightGrayColor],[UIColor clearColor]);
+   
     self.infoView.selectedButtonsArray = [NSMutableArray arrayWithArray:@[
                                                                      @"0",
                                                                      @"1",
