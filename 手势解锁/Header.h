@@ -9,7 +9,7 @@
 #ifndef Header_h
 #define Header_h
 
-#import "LockConst.h"
+#import "CBWGestureLockConst.h"
 #import "CALayer+Anim.h"
 #import "NSObject+IsBlankString.h"
 #endif /* Header_h */

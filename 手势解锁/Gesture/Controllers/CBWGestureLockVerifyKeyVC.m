@@ -6,11 +6,11 @@
 //  Copyright © 2016年 陈波文. All rights reserved.
 //
 
-#import "VerifyKeyVC.h"
-#import "LockView.h"
+#import "CBWGestureLockVerifyKeyVC.h"
+#import "CBWGestureLockView.h"
 #import "CBWCircleView.h"
 
-@interface VerifyKeyVC()<LockViewDelegate>
+@interface CBWGestureLockVerifyKeyVC()<LockViewDelegate>
 /** 提示的 label*/
 @property (nonatomic ,weak) UILabel *tipsLabel;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation VerifyKeyVC
+@implementation CBWGestureLockVerifyKeyVC
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"验证密码";
@@ -33,7 +33,7 @@
     //判断是否
     [self checkHasSetKey];
     
-    LockView *lockView = [[LockView alloc]init];
+    CBWGestureLockView *lockView = [[CBWGestureLockView alloc]init];
     lockView.frame = CGRectMake(0, 0, 300, 300);
     lockView.backgroundColor = lockViewBackgroupColor;
     lockView.center = self.view.center;
@@ -76,15 +76,15 @@
 
 #pragma mark - delegate
 
--(void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str{
+-(void)lockView:(CBWGestureLockView *)lockView setKeyActionEndStr:(NSString *)str{
     
     [self handleKeyWith:lockView str:str];
 }
 
 #pragma mark - 判断是否设置过密码
 
-- (void)handleKeyWith:(LockView *)lockView str:(NSString *)str{
-    NSString *gestureKeyStr = [LockConst getGestureWithKey:gestureKey];
+- (void)handleKeyWith:(CBWGestureLockView *)lockView str:(NSString *)str{
+    NSString *gestureKeyStr = [CBWGestureLockConst getGestureWithKey:gestureKey];
     __weak typeof(self) weakSelf = self;
     //不为空值
     if ([gestureKeyStr isEqualToString:str]) {
@@ -122,7 +122,7 @@
 
 - (void)checkHasSetKey{
     
-    NSString *gestureKeyStr = [LockConst getGestureWithKey:gestureKey];
+    NSString *gestureKeyStr = [CBWGestureLockConst getGestureWithKey:gestureKey];
     
     if ([self isBlankString:gestureKeyStr]) {
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"您还没有设置密码,请返回首页设置密码" message: nil preferredStyle:UIAlertControllerStyleAlert];
@@ -146,7 +146,7 @@
 - (void)gestureUnlockFailed{
     
    
-    [LockConst deleteGestureWithKey:gestureKey];
+    [CBWGestureLockConst deleteGestureWithKey:gestureKey];
     
     NSString *tipsStr = [NSString stringWithFormat:@"您已经错误%d次,需要重新登入并设置手势密码",errorCount];
     

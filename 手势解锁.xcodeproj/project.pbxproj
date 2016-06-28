@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		D023D4E31D18E17600D5E16E /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D01D18E17600D5E16E /* CALayer+Anim.m */; };
 		D023D4E41D18E17600D5E16E /* NSObject+IsBlankString.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D21D18E17600D5E16E /* NSObject+IsBlankString.m */; };
-		D023D4E51D18E17600D5E16E /* SettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D51D18E17600D5E16E /* SettingKeyVC.m */; };
+		D023D4E51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m */; };
 		D023D4E61D18E17600D5E16E /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D71D18E17600D5E16E /* TestView.m */; };
-		D023D4E71D18E17600D5E16E /* VerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */; };
-		D023D4E81D18E17600D5E16E /* LockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DB1D18E17600D5E16E /* LockConst.m */; };
+		D023D4E71D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D91D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m */; };
+		D023D4E81D18E17600D5E16E /* CBWGestureLockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */; };
 		D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DE1D18E17600D5E16E /* CBWCircleView.m */; };
-		D023D4EA1D18E17600D5E16E /* LockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E01D18E17600D5E16E /* LockInfoView.m */; };
-		D023D4EB1D18E17600D5E16E /* LockView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E21D18E17600D5E16E /* LockView.m */; };
+		D023D4EA1D18E17600D5E16E /* CBWGestureLockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E01D18E17600D5E16E /* CBWGestureLockInfoView.m */; };
+		D023D4EB1D18E17600D5E16E /* CBWGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E21D18E17600D5E16E /* CBWGestureLockView.m */; };
 		D07E736A1C8D4E4100ED5EAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73691C8D4E4100ED5EAB /* main.m */; };
 		D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736C1C8D4E4100ED5EAB /* AppDelegate.m */; };
 		D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E736F1C8D4E4100ED5EAB /* ViewController.m */; };
@@ -48,20 +48,20 @@
 		D023D4D01D18E17600D5E16E /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
 		D023D4D11D18E17600D5E16E /* NSObject+IsBlankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsBlankString.h"; sourceTree = "<group>"; };
 		D023D4D21D18E17600D5E16E /* NSObject+IsBlankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsBlankString.m"; sourceTree = "<group>"; };
-		D023D4D41D18E17600D5E16E /* SettingKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingKeyVC.h; sourceTree = "<group>"; };
-		D023D4D51D18E17600D5E16E /* SettingKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingKeyVC.m; sourceTree = "<group>"; };
+		D023D4D41D18E17600D5E16E /* CBWGestureLockSettingKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockSettingKeyVC.h; sourceTree = "<group>"; };
+		D023D4D51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockSettingKeyVC.m; sourceTree = "<group>"; };
 		D023D4D61D18E17600D5E16E /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		D023D4D71D18E17600D5E16E /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
-		D023D4D81D18E17600D5E16E /* VerifyKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyKeyVC.h; sourceTree = "<group>"; };
-		D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyKeyVC.m; sourceTree = "<group>"; };
-		D023D4DA1D18E17600D5E16E /* LockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockConst.h; sourceTree = "<group>"; };
-		D023D4DB1D18E17600D5E16E /* LockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockConst.m; sourceTree = "<group>"; };
+		D023D4D81D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockVerifyKeyVC.h; sourceTree = "<group>"; };
+		D023D4D91D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockVerifyKeyVC.m; sourceTree = "<group>"; };
+		D023D4DA1D18E17600D5E16E /* CBWGestureLockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockConst.h; sourceTree = "<group>"; };
+		D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockConst.m; sourceTree = "<group>"; };
 		D023D4DD1D18E17600D5E16E /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
 		D023D4DE1D18E17600D5E16E /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
-		D023D4DF1D18E17600D5E16E /* LockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockInfoView.h; sourceTree = "<group>"; };
-		D023D4E01D18E17600D5E16E /* LockInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockInfoView.m; sourceTree = "<group>"; };
-		D023D4E11D18E17600D5E16E /* LockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockView.h; sourceTree = "<group>"; };
-		D023D4E21D18E17600D5E16E /* LockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockView.m; sourceTree = "<group>"; };
+		D023D4DF1D18E17600D5E16E /* CBWGestureLockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockInfoView.h; sourceTree = "<group>"; };
+		D023D4E01D18E17600D5E16E /* CBWGestureLockInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockInfoView.m; sourceTree = "<group>"; };
+		D023D4E11D18E17600D5E16E /* CBWGestureLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockView.h; sourceTree = "<group>"; };
+		D023D4E21D18E17600D5E16E /* CBWGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockView.m; sourceTree = "<group>"; };
 		D07E73651C8D4E4100ED5EAB /* 手势解锁.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E73691C8D4E4100ED5EAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D07E736B1C8D4E4100ED5EAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 			children = (
 				D023D4CE1D18E17600D5E16E /* Category */,
 				D023D4D31D18E17600D5E16E /* Controllers */,
-				D023D4DA1D18E17600D5E16E /* LockConst.h */,
-				D023D4DB1D18E17600D5E16E /* LockConst.m */,
+				D023D4DA1D18E17600D5E16E /* CBWGestureLockConst.h */,
+				D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */,
 				D023D4DC1D18E17600D5E16E /* View */,
 			);
 			path = Gesture;
@@ -132,12 +132,12 @@
 		D023D4D31D18E17600D5E16E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D023D4D41D18E17600D5E16E /* SettingKeyVC.h */,
-				D023D4D51D18E17600D5E16E /* SettingKeyVC.m */,
+				D023D4D41D18E17600D5E16E /* CBWGestureLockSettingKeyVC.h */,
+				D023D4D51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m */,
 				D023D4D61D18E17600D5E16E /* TestView.h */,
 				D023D4D71D18E17600D5E16E /* TestView.m */,
-				D023D4D81D18E17600D5E16E /* VerifyKeyVC.h */,
-				D023D4D91D18E17600D5E16E /* VerifyKeyVC.m */,
+				D023D4D81D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.h */,
+				D023D4D91D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -147,10 +147,10 @@
 			children = (
 				D023D4DD1D18E17600D5E16E /* CBWCircleView.h */,
 				D023D4DE1D18E17600D5E16E /* CBWCircleView.m */,
-				D023D4DF1D18E17600D5E16E /* LockInfoView.h */,
-				D023D4E01D18E17600D5E16E /* LockInfoView.m */,
-				D023D4E11D18E17600D5E16E /* LockView.h */,
-				D023D4E21D18E17600D5E16E /* LockView.m */,
+				D023D4DF1D18E17600D5E16E /* CBWGestureLockInfoView.h */,
+				D023D4E01D18E17600D5E16E /* CBWGestureLockInfoView.m */,
+				D023D4E11D18E17600D5E16E /* CBWGestureLockView.h */,
+				D023D4E21D18E17600D5E16E /* CBWGestureLockView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,16 +354,16 @@
 			files = (
 				D023D4E61D18E17600D5E16E /* TestView.m in Sources */,
 				D023D4E41D18E17600D5E16E /* NSObject+IsBlankString.m in Sources */,
-				D023D4EA1D18E17600D5E16E /* LockInfoView.m in Sources */,
+				D023D4EA1D18E17600D5E16E /* CBWGestureLockInfoView.m in Sources */,
 				D07E73701C8D4E4100ED5EAB /* ViewController.m in Sources */,
 				D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */,
 				D023D4E31D18E17600D5E16E /* CALayer+Anim.m in Sources */,
 				D07E736A1C8D4E4100ED5EAB /* main.m in Sources */,
-				D023D4E81D18E17600D5E16E /* LockConst.m in Sources */,
+				D023D4E81D18E17600D5E16E /* CBWGestureLockConst.m in Sources */,
 				D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */,
-				D023D4EB1D18E17600D5E16E /* LockView.m in Sources */,
-				D023D4E51D18E17600D5E16E /* SettingKeyVC.m in Sources */,
-				D023D4E71D18E17600D5E16E /* VerifyKeyVC.m in Sources */,
+				D023D4EB1D18E17600D5E16E /* CBWGestureLockView.m in Sources */,
+				D023D4E51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m in Sources */,
+				D023D4E71D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

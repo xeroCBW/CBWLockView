@@ -6,22 +6,22 @@
 //  Copyright © 2016年 陈波文. All rights reserved.
 //
 
-#import "SettingKeyVC.h"
-#import "LockView.h"
+#import "CBWGestureLockSettingKeyVC.h"
+#import "CBWGestureLockView.h"
 #import "CBWCircleView.h"
-#import "LockInfoView.h"
+#import "CBWGestureLockInfoView.h"
 
-@interface SettingKeyVC ()<LockViewDelegate>
+@interface CBWGestureLockSettingKeyVC ()<LockViewDelegate>
 
 /** 手势密码字符串*/
 @property (nonatomic ,copy) NSString *keyStr;
 /** 提示的 label*/
 @property (nonatomic ,weak) UILabel *tipsLabel;
 /** 选中的小9宫格 view*/
-@property (nonatomic ,weak)  LockInfoView *infoView;
+@property (nonatomic ,weak)  CBWGestureLockInfoView *infoView;
 @end
 
-@implementation SettingKeyVC
+@implementation CBWGestureLockSettingKeyVC
 
 
 -(void)viewDidLoad{
@@ -34,7 +34,7 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"pay_btn_close"] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = right;
     
-    LockView *lockView = [[LockView alloc]init];
+    CBWGestureLockView *lockView = [[CBWGestureLockView alloc]init];
     lockView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 300)/2.0, 200, 300, 300);
     lockView.backgroundColor = lockViewBackgroupColor;
     lockView.delegate = self;
@@ -49,7 +49,7 @@
     label.text = inputTips;
     self.tipsLabel = label;
     
-    LockInfoView *infoView = [[LockInfoView alloc]init];
+    CBWGestureLockInfoView *infoView = [[CBWGestureLockInfoView alloc]init];
     infoView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 50)/2.0, CGRectGetMinY(label.frame) - 60, 50,50);
     [self.view addSubview:infoView];
     self.infoView = infoView;
@@ -60,7 +60,7 @@
 
 #pragma mark -  delegate
 
-- (void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str{
+- (void)lockView:(CBWGestureLockView *)lockView setKeyActionEndStr:(NSString *)str{
     
     NSLog(@"%@",str);
     [self handleWithStr:str lockView:lockView];
@@ -68,7 +68,7 @@
 }
 
 #pragma mark - private
-- (void)handleWithStr:(NSString *)str lockView:(LockView *)lockView{
+- (void)handleWithStr:(NSString *)str lockView:(CBWGestureLockView *)lockView{
     
       __weak typeof(self) weakSelf = self;
     
@@ -116,7 +116,7 @@
         
         if ([weakSelf.keyStr isEqualToString:str]) {
             //将密码保存到本地
-            [LockConst saveGesture:str Key:gestureKey];
+            [CBWGestureLockConst saveGesture:str Key:gestureKey];
             //就返回
             [self dismissViewControllerAnimated:YES completion:nil];
             

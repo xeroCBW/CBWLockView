@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class LockView;
+@class CBWGestureLockView;
 @protocol LockViewDelegate <NSObject>
 @optional
-- (void)lockView:(LockView *)lockView setKeyActionEndStr:(NSString *)str;
+- (void)lockView:(CBWGestureLockView *)lockView setKeyActionEndStr:(NSString *)str;
 @end
 
-@interface LockView : UIView
+@interface CBWGestureLockView : UIView
 
 /**
  *  selectedButtonArray
@@ -26,7 +26,7 @@
 @property(nonatomic,assign)NSInteger buttonArrayCount;
 
 /** 选中9宫格字符串*/
-@property (nonatomic ,strong) void (^lockViewHandle)(NSString *str,LockView *lockView) ;
+@property (nonatomic ,strong) void (^lockViewHandle)(NSString *str,CBWGestureLockView *lockView) ;
 
 /** 那个选中*/
 @property (nonatomic ,assign) NSInteger index;

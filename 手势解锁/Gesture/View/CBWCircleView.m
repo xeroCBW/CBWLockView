@@ -42,6 +42,8 @@
     NSLog(@"%s",__func__);
 }
 
+
+
 #pragma mark - private
 
 //重写 drawRect 方法
@@ -53,7 +55,7 @@
 
     UIColor *color ;
     NSLog(@"CircleViewStateError=%zd",self.state);
-
+    
     //没有在选中之前,就没有颜色
     if (!self.isNormalStateMove) {color = [UIColor clearColor];}
     

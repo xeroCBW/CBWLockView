@@ -6,15 +6,15 @@
 //  Copyright © 2016年 陈波文. All rights reserved.
 //
 
-#import "LockInfoView.h"
+#import "CBWGestureLockInfoView.h"
 #import "CBWCircleView.h"
 
-@interface LockInfoView ()
+@interface CBWGestureLockInfoView ()
 /** j*/
 @property (nonatomic ,assign) NSInteger j;
 @end
 
-@implementation LockInfoView
+@implementation CBWGestureLockInfoView
 - (instancetype)init
 {
     if (self = [super init]) {

@@ -66,7 +66,7 @@ static const int   errorCount = 5;//验证密码可以错误的次数
 
 #define trangleColorInfoNormal trangleColorNormal
 #define trangleColorInfoSelect trangleColorNormal
-@interface LockConst : NSObject
+@interface CBWGestureLockConst : NSObject
 
 //保存密码
 + (void)saveGesture:(NSString *)gesture Key:(NSString *)key;

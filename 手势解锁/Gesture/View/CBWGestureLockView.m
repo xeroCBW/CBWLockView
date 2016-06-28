@@ -6,15 +6,15 @@
 //  Copyright © 2016年 陈波文. All rights reserved.
 //
 
-#import "LockView.h"
+#import "CBWGestureLockView.h"
 #import "CBWCircleView.h"
 
-@interface LockView ()
+@interface CBWGestureLockView ()
 // 当前点
 @property (nonatomic, assign) CGPoint currentPoint;
 @end
 
-@implementation LockView
+@implementation CBWGestureLockView
 
 #pragma mark - lazy
 
@@ -289,6 +289,7 @@
     [path strokeWithBlendMode:kCGBlendModeColor alpha:1.0];
     //绘制路径.
     [path stroke];
+    
 }
 #pragma mark - 每添加一个圆，就计算一次方向
 -(void)calAngleAndconnectTheJumpedCircle{

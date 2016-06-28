@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "SettingKeyVC.h"
-#import "VerifyKeyVC.h"
+#import "CBWGestureLockSettingKeyVC.h"
+#import "CBWGestureLockVerifyKeyVC.h"
 #import "TestView.h"
 
 
@@ -24,14 +24,14 @@
 
 - (void)viewDidLoad{
     
-    [LockConst saveGesture:nil Key:gestureKey];
+    [CBWGestureLockConst saveGesture:nil Key:gestureKey];
     self.segment.selectedSegmentIndex = 0;
 }
 
 
 - (IBAction)settingKeyAction:(id)sender {
     
-    SettingKeyVC *settingVC = [[SettingKeyVC alloc]init];
+    CBWGestureLockSettingKeyVC *settingVC = [[CBWGestureLockSettingKeyVC alloc]init];
     settingVC.index = self.segment.selectedSegmentIndex;
     UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:settingVC];
     
@@ -44,7 +44,7 @@
 - (IBAction)verifyKeyAction:(id)sender {
     
     
-    VerifyKeyVC *verifyVC = [[VerifyKeyVC alloc]init];
+    CBWGestureLockVerifyKeyVC *verifyVC = [[CBWGestureLockVerifyKeyVC alloc]init];
     verifyVC.index = self.segment.selectedSegmentIndex;
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:verifyVC];
     [self presentViewController:nav animated:YES completion:nil];

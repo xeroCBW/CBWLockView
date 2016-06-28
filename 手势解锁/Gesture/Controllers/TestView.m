@@ -7,11 +7,11 @@
 //
 
 #import "TestView.h"
-#import "LockInfoView.h"
+#import "CBWGestureLockInfoView.h"
 
 @interface TestView ()
 /** infoView*/
-@property (nonatomic ,weak) LockInfoView *infoView;
+@property (nonatomic ,weak) CBWGestureLockInfoView *infoView;
 
 @end
 @implementation TestView
@@ -21,7 +21,7 @@
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    LockInfoView *infoView = [[LockInfoView alloc]init];
+    CBWGestureLockInfoView *infoView = [[CBWGestureLockInfoView alloc]init];
     infoView.frame = CGRectMake(0, 0, 150,150);
     infoView.center = self.view.center;
     self.infoView = infoView;

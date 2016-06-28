@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingKeyVC : UIViewController
+@interface CBWGestureLockSettingKeyVC : UIViewController
 /** index*/
 @property (nonatomic ,assign) NSInteger index;
 @end

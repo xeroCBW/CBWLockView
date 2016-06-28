@@ -6,9 +6,9 @@
 //  Copyright © 2016年 陈波文. All rights reserved.
 //
 
-#import "LockConst.h"
+#import "CBWGestureLockConst.h"
 
-@implementation LockConst
+@implementation CBWGestureLockConst
 
 + (void)saveGesture:(NSString *)gesture Key:(NSString *)key
 {

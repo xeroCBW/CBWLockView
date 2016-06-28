@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LockInfoView : UIView
+@interface CBWGestureLockInfoView : UIView
 
 /** infoView 选中的按钮*/
 @property (nonatomic ,strong)  NSMutableArray *selectedButtonsArray;
