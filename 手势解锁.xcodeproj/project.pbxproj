@@ -12,7 +12,6 @@
 		D023D4E51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m */; };
 		D023D4E61D18E17600D5E16E /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D71D18E17600D5E16E /* TestView.m */; };
 		D023D4E71D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4D91D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m */; };
-		D023D4E81D18E17600D5E16E /* CBWGestureLockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */; };
 		D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4DE1D18E17600D5E16E /* CBWCircleView.m */; };
 		D023D4EA1D18E17600D5E16E /* CBWGestureLockInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E01D18E17600D5E16E /* CBWGestureLockInfoView.m */; };
 		D023D4EB1D18E17600D5E16E /* CBWGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = D023D4E21D18E17600D5E16E /* CBWGestureLockView.m */; };
@@ -24,6 +23,7 @@
 		D07E73781C8D4E4100ED5EAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D07E73761C8D4E4100ED5EAB /* LaunchScreen.storyboard */; };
 		D07E73831C8D4E4100ED5EAB /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E73821C8D4E4100ED5EAB /* ____Tests.m */; };
 		D07E738E1C8D4E4100ED5EAB /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D07E738D1C8D4E4100ED5EAB /* ____UITests.m */; };
+		D09502541D221588008CA6CE /* CBWGestureLockConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D09502531D221588008CA6CE /* CBWGestureLockConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,6 @@
 		D023D4D71D18E17600D5E16E /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		D023D4D81D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockVerifyKeyVC.h; sourceTree = "<group>"; };
 		D023D4D91D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockVerifyKeyVC.m; sourceTree = "<group>"; };
-		D023D4DA1D18E17600D5E16E /* CBWGestureLockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockConst.h; sourceTree = "<group>"; };
-		D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockConst.m; sourceTree = "<group>"; };
 		D023D4DD1D18E17600D5E16E /* CBWCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWCircleView.h; sourceTree = "<group>"; };
 		D023D4DE1D18E17600D5E16E /* CBWCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWCircleView.m; sourceTree = "<group>"; };
 		D023D4DF1D18E17600D5E16E /* CBWGestureLockInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockInfoView.h; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		D07E73891C8D4E4100ED5EAB /* 手势解锁UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07E738D1C8D4E4100ED5EAB /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		D07E738F1C8D4E4100ED5EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D09502521D221588008CA6CE /* CBWGestureLockConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWGestureLockConst.h; sourceTree = "<group>"; };
+		D09502531D221588008CA6CE /* CBWGestureLockConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBWGestureLockConst.m; sourceTree = "<group>"; };
 		D0B6BEC21CE483340096B778 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,10 +109,9 @@
 		D023D4CD1D18E17600D5E16E /* Gesture */ = {
 			isa = PBXGroup;
 			children = (
+				D09502511D221588008CA6CE /* Other */,
 				D023D4CE1D18E17600D5E16E /* Category */,
 				D023D4D31D18E17600D5E16E /* Controllers */,
-				D023D4DA1D18E17600D5E16E /* CBWGestureLockConst.h */,
-				D023D4DB1D18E17600D5E16E /* CBWGestureLockConst.m */,
 				D023D4DC1D18E17600D5E16E /* View */,
 			);
 			path = Gesture;
@@ -217,6 +216,15 @@
 				D07E738F1C8D4E4100ED5EAB /* Info.plist */,
 			);
 			path = "手势解锁UITests";
+			sourceTree = "<group>";
+		};
+		D09502511D221588008CA6CE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D09502521D221588008CA6CE /* CBWGestureLockConst.h */,
+				D09502531D221588008CA6CE /* CBWGestureLockConst.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,11 +367,11 @@
 				D07E736D1C8D4E4100ED5EAB /* AppDelegate.m in Sources */,
 				D023D4E31D18E17600D5E16E /* CALayer+Anim.m in Sources */,
 				D07E736A1C8D4E4100ED5EAB /* main.m in Sources */,
-				D023D4E81D18E17600D5E16E /* CBWGestureLockConst.m in Sources */,
 				D023D4E91D18E17600D5E16E /* CBWCircleView.m in Sources */,
 				D023D4EB1D18E17600D5E16E /* CBWGestureLockView.m in Sources */,
 				D023D4E51D18E17600D5E16E /* CBWGestureLockSettingKeyVC.m in Sources */,
 				D023D4E71D18E17600D5E16E /* CBWGestureLockVerifyKeyVC.m in Sources */,
+				D09502541D221588008CA6CE /* CBWGestureLockConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

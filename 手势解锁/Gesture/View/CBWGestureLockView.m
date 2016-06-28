@@ -378,7 +378,9 @@
 #pragma mark - 对数组中最后一个对象的处理
 - (void)circleSetLastObjectWithState:(CircleViewState)state
 {
-    [[self.selectedButtonArray lastObject] setState:state];
+    
+    CBWCircleView *view = [self.selectedButtonArray lastObject];
+    [view setState:state];
 }
 
 @end
